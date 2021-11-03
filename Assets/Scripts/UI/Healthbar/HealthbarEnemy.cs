@@ -10,7 +10,10 @@ public class HealthbarEnemy : HealthbarBase
     private void Awake()
     {
         slider = GetComponent<Slider>();
+    }
 
+    private void Start()
+    {    
         if(enemy)
             SetMaxHealth(enemy.enemyData.health);
     }

@@ -15,5 +15,5 @@ MonoBehaviour:
   health: 200
   score: 40
   fireInterval: 1
-  color: 0
+  color: 9
   onDieClip: {fileID: 8300000, guid: 72e76810224064300b7d32e8322a5d12, type: 3}

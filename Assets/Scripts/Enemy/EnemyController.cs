@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
         SetColor();
     }
 
-    private void InitData()
+    public void InitData()
     {
         Health = enemyData.health;
         Score = enemyData.score;
@@ -41,7 +41,7 @@ public class EnemyController : MonoBehaviour
         Color = enemyData.color;        
     }
 
-    private void SetColor()
+    public void SetColor()
     {
         string colorString = Color.ToString();
         sprite.color = ColorUtility.TryParseHtmlString(colorString, out Color unityColor) ? unityColor : sprite.color;
