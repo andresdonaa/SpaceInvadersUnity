@@ -56,6 +56,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        EnemyController enemy = collision.GetComponent<EnemyController>();
+        if (enemy != null)
+        {   
+            Messenger.Default.Publish(new PlayerCollisionWithEnemyEvent());
+        }
+
         EnemyProjectile projectile = collision.GetComponent<EnemyProjectile>();
         if (projectile != null)
         {

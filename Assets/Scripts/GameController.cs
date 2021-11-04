@@ -1,6 +1,5 @@
 using Scripts.Events;
 using SuperMaxim.Messaging;
-using System;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -15,7 +14,7 @@ public class GameController : MonoBehaviour
         score = new Score();
         lives = gameRules.lives;
 
-        Subscribe();        
+        Subscribe();
     }
 
     private void OnDestroy()
@@ -28,13 +27,21 @@ public class GameController : MonoBehaviour
         Messenger.Default.Subscribe<EnemyDestroyEvent>(OnEnemyDestroy);
         Messenger.Default.Subscribe<PlayerTakeDamageEvent>(OnPlayerReceiveDamage);
         Messenger.Default.Subscribe<PlayerDieEvent>(OnPlayerDie);
+        Messenger.Default.Subscribe<PlayerCollisionWithEnemyEvent>(OnPlayerCollisionWithEnemy);
     }
-    
+
     private void Unsubscribe()
     {
         Messenger.Default.Unsubscribe<PlayerTakeDamageEvent>(OnPlayerReceiveDamage);
         Messenger.Default.Unsubscribe<PlayerDieEvent>(OnPlayerDie);
         Messenger.Default.Unsubscribe<EnemyDestroyEvent>(OnEnemyDestroy);
+        Messenger.Default.Unsubscribe<PlayerCollisionWithEnemyEvent>(OnPlayerCollisionWithEnemy);
+    }
+
+    private void OnPlayerCollisionWithEnemy(PlayerCollisionWithEnemyEvent playerCollisionWithEnemyEvent)
+    {
+        Debug.Log("Gameover");
+        SceneController.ReloadScene();
     }
 
     private void OnPlayerReceiveDamage(PlayerTakeDamageEvent playerTakeDamageEvent)
@@ -48,7 +55,7 @@ public class GameController : MonoBehaviour
         lives--;
         if (lives == 0)
         {
-            Messenger.Default.Publish(new GameOverEvent());            
+            Messenger.Default.Publish(new GameOverEvent());
             Debug.Log("Game Over!");
         }
     }
@@ -57,5 +64,4 @@ public class GameController : MonoBehaviour
     {
         score.AddScore(enemyDestroyEvent.Enemy.Score);
     }
-
 }
