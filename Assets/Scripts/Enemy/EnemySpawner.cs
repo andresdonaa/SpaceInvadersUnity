@@ -4,12 +4,12 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject EnemyPrefab;
-    [SerializeField] private Transform InitialPosition;
-    [SerializeField] private EnemyData[] EnemyTypes;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private Transform initialPosition;
+    [SerializeField] private EnemyData[] enemyTypes;
 
-    [SerializeField] private int Rows = 4;
-    [SerializeField] private int Columns = 8;
+    [SerializeField] private int rows = 4;
+    [SerializeField] private int columns = 8;
 
     private float waveStepRight = 1f, spaceColumns = 0.3f, spaceRows = 0.3f;
     private List<EnemyController> spawnedEnemies = new List<EnemyController>();
@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (EnemyController enemy in spawnedEnemies)
         {
-            enemy.enemyData = EnemyTypes[Random.Range(0, EnemyTypes.Length)];
+            enemy.enemyData = enemyTypes[Random.Range(0, enemyTypes.Length)];
             enemy.InitData();
             enemy.SetColor();
         }
@@ -32,14 +32,14 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        for (int r = 0; r < Rows; r++)
+        for (int r = 0; r < rows; r++)
         {
-            float posY = InitialPosition.position.y - (spaceRows * r);
+            float posY = initialPosition.position.y - (spaceRows * r);
 
-            for (int c = 0; c < Columns; c++)
+            for (int c = 0; c < columns; c++)
             {
-                Vector2 objectPosition = new Vector2(InitialPosition.position.x + (spaceColumns * c), posY);
-                GameObject go = Instantiate(EnemyPrefab, objectPosition, Quaternion.identity);
+                Vector2 objectPosition = new Vector2(initialPosition.position.x + (spaceColumns * c), posY);
+                GameObject go = Instantiate(enemyPrefab, objectPosition, Quaternion.identity);
                 go.transform.SetParent(transform);
                 go.name = "Enemy" + (c + 1) + "-Row:" + (r + 1);
 

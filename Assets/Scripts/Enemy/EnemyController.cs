@@ -6,7 +6,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(EnemyData))]
 public class EnemyController : MonoBehaviour
-{        
+{
     public EnemyData enemyData;
 
     [SerializeField] private SpriteRenderer sprite;
@@ -38,7 +38,7 @@ public class EnemyController : MonoBehaviour
         Health = enemyData.health;
         Score = enemyData.score;
         FireInterval = enemyData.fireInterval;
-        Color = enemyData.color;        
+        Color = enemyData.color;
     }
 
     public void SetColor()
@@ -49,27 +49,27 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TakeDamage(collision);
-        Destroy(collision.gameObject);
-    }
-
-    private void TakeDamage(Collider2D collision)
-    {
         PlayerProjectile projectile = collision.GetComponent<PlayerProjectile>();
         if (projectile != null)
         {
-            Health -= projectile.damageAmount;            
-            healthbar?.UpdateHealthbar(Health);
-            if (Health <= 0)
-            {
-                Destroy();
-            }
+            TakeDamage(projectile.damageAmount);
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void TakeDamage(float damageAmount)
+    {
+        Health -= damageAmount;
+        healthbar?.UpdateHealthbar(Health);
+        if (Health <= 0)
+        {
+            Destroy();
         }
     }
 
     private void Destroy()
     {
-        Messenger.Default.Publish(new EnemyDestroyEvent(this));        
+        Messenger.Default.Publish(new EnemyDestroyEvent(this));
         AudioSource.PlayClipAtPoint(enemyData.onDieClip, gameObject.transform.position);
         Destroy(gameObject);
     }

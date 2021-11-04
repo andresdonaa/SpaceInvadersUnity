@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class LivesView : MonoBehaviour
 {
-    [SerializeField] private GameObject LifeIconPrefab;
-    [SerializeField] private Transform LivesParent;
+    [SerializeField] private GameObject lifeIconPrefab;
+    [SerializeField] private Transform livesParent;
     [SerializeField] private GameRules gameRules;
 
     private List<GameObject> livesIcon = new List<GameObject>();
@@ -17,7 +17,7 @@ public class LivesView : MonoBehaviour
 
         for (int i = 0; i < gameRules.lives; i++)
         {
-            livesIcon.Add(Instantiate(LifeIconPrefab, LivesParent));
+            livesIcon.Add(Instantiate(lifeIconPrefab, livesParent));
         }
     }
 
@@ -29,7 +29,6 @@ public class LivesView : MonoBehaviour
             livesIcon.RemoveAt(0);
         }
     }
-
 
     private void OnDestroy()
     {

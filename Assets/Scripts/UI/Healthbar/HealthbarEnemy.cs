@@ -1,5 +1,3 @@
-using Scripts.Events;
-using SuperMaxim.Messaging;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,13 +11,13 @@ public class HealthbarEnemy : HealthbarBase
     }
 
     private void Start()
-    {    
-        if(enemy)
+    {
+        if (enemy != null)
             SetMaxHealth(enemy.enemyData.health);
     }
 
     public void UpdateHealthbar(float health)
     {
         UpdateHealth(health);
-    }    
+    }
 }
