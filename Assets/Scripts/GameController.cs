@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
         Messenger.Default.Subscribe<PlayerTakeDamageEvent>(OnPlayerReceiveDamage);
         Messenger.Default.Subscribe<PlayerDieEvent>(OnPlayerDie);
         Messenger.Default.Subscribe<PlayerCollisionWithEnemyEvent>(OnPlayerCollisionWithEnemy);
+        Messenger.Default.Subscribe<GameOverEvent>(OnGameOver);
     }
 
     private void Unsubscribe()
@@ -36,12 +37,12 @@ public class GameController : MonoBehaviour
         Messenger.Default.Unsubscribe<PlayerDieEvent>(OnPlayerDie);
         Messenger.Default.Unsubscribe<EnemyDestroyEvent>(OnEnemyDestroy);
         Messenger.Default.Unsubscribe<PlayerCollisionWithEnemyEvent>(OnPlayerCollisionWithEnemy);
+        Messenger.Default.Unsubscribe<GameOverEvent>(OnGameOver);
     }
 
     private void OnPlayerCollisionWithEnemy(PlayerCollisionWithEnemyEvent playerCollisionWithEnemyEvent)
     {
-        Debug.Log("Gameover");
-        SceneController.ReloadScene();
+        Messenger.Default.Publish(new GameOverEvent());
     }
 
     private void OnPlayerReceiveDamage(PlayerTakeDamageEvent playerTakeDamageEvent)
@@ -51,17 +52,21 @@ public class GameController : MonoBehaviour
 
     private void OnPlayerDie(PlayerDieEvent playerDieEvent)
     {
-        //gameRules.lives--;
         lives--;
         if (lives == 0)
         {
             Messenger.Default.Publish(new GameOverEvent());
-            Debug.Log("Game Over!");
         }
     }
 
     private void OnEnemyDestroy(EnemyDestroyEvent enemyDestroyEvent)
     {
         score.AddScore(enemyDestroyEvent.Enemy.Score);
+    }
+
+    private void OnGameOver(GameOverEvent gameOverEvent)
+    {
+        Debug.Log("Game Over!");
+        SceneController.ReloadScene();
     }
 }

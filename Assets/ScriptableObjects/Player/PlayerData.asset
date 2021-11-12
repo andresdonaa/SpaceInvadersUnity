@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fbe5f1596d98654e84a79f454429f26, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 10
   health: 100
   onDieClip: {fileID: 8300000, guid: a019ae3af8e864616b85773c509f5285, type: 3}

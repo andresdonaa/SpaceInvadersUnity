@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6832131974440545247}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.192, z: 0}
+  m_LocalPosition: {x: 0, y: -0.457, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6832131975161370178}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772eac820f4d02b498aa71aa5109d45d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 5
   projectilePrefab: {fileID: 1453477493800880508, guid: b6fa2172cdc24db4e8a73bd194b67226,
     type: 3}
   spawnPoint: {fileID: 6832131974440545246}
@@ -162,18 +162,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.011779614}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.22, y: 0.16}
+    oldSize: {x: 1.1, y: 0.8}
     newSize: {x: 0.22, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.22, y: 0.13644077}
+  m_Size: {x: 1.1, y: 0.8}
   m_EdgeRadius: 0
 --- !u!1001 &8902137866950681795
 PrefabInstance:
@@ -296,6 +296,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234724219680767185, guid: bb576847a9ff9de4f8aa852638ce4b62,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234724219680767185, guid: bb576847a9ff9de4f8aa852638ce4b62,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234724219680767185, guid: bb576847a9ff9de4f8aa852638ce4b62,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 363
       objectReference: {fileID: 0}
     - target: {fileID: 8264609569656878721, guid: bb576847a9ff9de4f8aa852638ce4b62,
         type: 3}

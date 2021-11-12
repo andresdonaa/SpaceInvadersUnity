@@ -1,3 +1,5 @@
+using Scripts.Events;
+using SuperMaxim.Messaging;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,13 +13,23 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int rows = 4;
     [SerializeField] private int columns = 8;
 
-    private float waveStepRight = 1f, spaceColumns = 0.3f, spaceRows = 0.3f;
+    private float waveStepRight = 1f, spaceColumns = 1.5f, spaceRows = 1.5f;
     private List<EnemyController> spawnedEnemies = new List<EnemyController>();
+    private int totalEnemiesCount = 0;
 
     private void Awake()
     {
+        Messenger.Default.Subscribe<EnemyDestroyEvent>(OnEnemyDestroy);
         Spawn();
         SetVariants();
+    }
+
+    private void OnEnemyDestroy(EnemyDestroyEvent enemyDestroyEvent)
+    {
+        totalEnemiesCount--;
+
+        if(totalEnemiesCount <= 0)
+            Messenger.Default.Publish(new GameOverEvent());
     }
 
     private void SetVariants()
@@ -46,5 +58,7 @@ public class EnemySpawner : MonoBehaviour
                 spawnedEnemies.Add(go.GetComponent<EnemyController>());
             }
         }
+
+        totalEnemiesCount = spawnedEnemies.Count;
     }
 }

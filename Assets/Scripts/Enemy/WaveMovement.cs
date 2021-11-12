@@ -6,13 +6,13 @@ using System;
 
 public class WaveMovement : MonoBehaviour
 {
-    [SerializeField] private float waveStepDown = 0.25f;
+    [SerializeField] private float waveStepDown = 1f;
 
     [Range(0.1f, 5f)]
     [SerializeField] private float waveDelaySpeed = 1f;
 
-    [Range(0.1f, 1f)]
-    [SerializeField] private float waveStepRight = 0.25f;
+    [Range(0.1f, 2f)]
+    [SerializeField] private float waveStepRight = 1f;
     
     private float waveSpeedModifier = 1f;
     private bool canMove = true;
