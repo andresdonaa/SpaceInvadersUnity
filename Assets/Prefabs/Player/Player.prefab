@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8079285945166991967}
   - component: {fileID: 8079285945166991964}
   - component: {fileID: 8079285945166991966}
+  - component: {fileID: 4930876985342036609}
   - component: {fileID: 5927330890119441262}
   - component: {fileID: 8079285945166991965}
   - component: {fileID: 8079285945166991968}
@@ -68,6 +69,18 @@ MonoBehaviour:
     type: 3}
   spawnPoint: {fileID: 8079285945416856401}
   onFireClip: {fileID: 8300000, guid: bf75b984df8a84987bcf3a8bf6e2862d, type: 3}
+--- !u!114 &4930876985342036609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079285945166991962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca8dc78f43469942b572148a000768d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &5927330890119441262
 AudioSource:
   m_ObjectHideFlags: 0

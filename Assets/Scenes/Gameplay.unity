@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d888838b9ab854d4b941a2868331a54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveStepDown: 0.25
+  waveStepDown: 0.5
   waveDelaySpeed: 1
   waveStepRight: 1
 --- !u!1 &664936996

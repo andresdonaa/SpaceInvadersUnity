@@ -1,5 +1,6 @@
 using Scripts.Events;
 using SuperMaxim.Messaging;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         input = new InputController();
         Messenger.Default.Subscribe<FireButtonPressedEvent>(Fire);
+        Messenger.Default.Subscribe<GameOverEvent>(OnGameOver);
 
         InitData();
 
@@ -88,8 +90,13 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         InitData();
-        StartCoroutine(Blink.BlinkWithDisableColliderCoroutine(collider, spriteRenderer));
+        StartCoroutine(Blink.BlinkCoroutine(collider, spriteRenderer));
         Respawn();
+    }
+
+    private void OnGameOver(GameOverEvent gameOverEvent)
+    {
+        Destroy(gameObject);
     }
 
     private void Respawn()

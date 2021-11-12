@@ -67,6 +67,11 @@ public class GameController : MonoBehaviour
     private void OnGameOver(GameOverEvent gameOverEvent)
     {
         Debug.Log("Game Over!");
+        Invoke("RestartGame", 1f);
+    }
+
+    private void RestartGame()
+    {
         SceneController.ReloadScene();
     }
 }

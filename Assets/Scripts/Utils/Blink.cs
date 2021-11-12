@@ -3,9 +3,9 @@ using UnityEngine;
 
 public static class Blink
 {
-    public static IEnumerator BlinkWithDisableColliderCoroutine(BoxCollider2D collider, SpriteRenderer spriteRenderer)
+    public static IEnumerator BlinkCoroutine(BoxCollider2D colliderToDisable, SpriteRenderer spriteRenderer)
     {
-        collider.enabled = false;
+        colliderToDisable.enabled = false;
 
         for (int i = 0; i < 15; i++)
         {
@@ -14,6 +14,6 @@ public static class Blink
         }
 
         spriteRenderer.enabled = true;
-        collider.enabled = true;
+        colliderToDisable.enabled = true;
     }
 }
