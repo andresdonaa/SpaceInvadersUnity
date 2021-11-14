@@ -10,12 +10,14 @@ public class EnemyController : MonoBehaviour
     public EnemyData enemyData;
 
     [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private Sprite dieSprite;
     [SerializeField] private HealthbarEnemy healthbar;
 
     private float health;
     private int score;
     private float fireInterval;
     private ConsoleColor color;
+    private SpriteRenderer spriteRenderer;
 
     public float Health { get => health; set => health = value; }
     public int Score { get => score; set => score = value; }
@@ -26,6 +28,7 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         projectile = GetComponent<IFireable>();
         StartCoroutine(Fire());
 
@@ -63,15 +66,17 @@ public class EnemyController : MonoBehaviour
         healthbar?.UpdateHealthbar(Health);
         if (Health <= 0)
         {
-            Destroy();
+            Die();
         }
     }
 
-    private void Destroy()
+    private void Die()
     {
         Messenger.Default.Publish(new EnemyDestroyEvent(this));
         AudioSource.PlayClipAtPoint(enemyData.onDieClip, gameObject.transform.position);
-        Destroy(gameObject);
+        spriteRenderer.sprite = dieSprite;
+        healthbar.gameObject.SetActive(false);
+        Destroy(gameObject, 0.5f);
     }
 
     private IEnumerator Fire()

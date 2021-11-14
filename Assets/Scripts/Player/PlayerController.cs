@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     private void OnDestroy()
     {
         Messenger.Default.Unsubscribe<FireButtonPressedEvent>(Fire);
+        Messenger.Default.Unsubscribe<GameOverEvent>(OnGameOver);
     }
 
     private void InitData()

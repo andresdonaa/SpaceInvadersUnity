@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: b7e2bd0a1f6e0b7429436068f9925826, type: 2}
   sprite: {fileID: 6832131975161370179}
+  dieSprite: {fileID: 21300034, guid: 8348d9d3a181baa4c9a0c1841ee04401, type: 3}
   healthbar: {fileID: 196106250826201045}
 --- !u!114 &6832131975161370181
 MonoBehaviour:
