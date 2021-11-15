@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     private float fireInterval;
     private ConsoleColor color;
     private SpriteRenderer spriteRenderer;
+    private BoxCollider2D collider;
 
     public float Health { get => health; set => health = value; }
     public int Score { get => score; set => score = value; }
@@ -29,6 +30,7 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        collider = GetComponent<BoxCollider2D>();
         projectile = GetComponent<IFireable>();
         StartCoroutine(Fire());
 
@@ -76,6 +78,7 @@ public class EnemyController : MonoBehaviour
         AudioSource.PlayClipAtPoint(enemyData.onDieClip, gameObject.transform.position);
         spriteRenderer.sprite = dieSprite;
         healthbar.gameObject.SetActive(false);
+        collider.enabled = false;
         Destroy(gameObject, 0.5f);
     }
 

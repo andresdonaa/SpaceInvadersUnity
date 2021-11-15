@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour
 
     private void Respawn()
     {
+        Debug.Log("Respawn Player...");
         Messenger.Default.Publish(new PlayerRespawnEvent(this));
     }
 

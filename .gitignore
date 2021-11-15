@@ -38,3 +38,5 @@ Logs/ApiUpdaterCheck.txt
 Logs/ApiUpdaterCheck.txt
 Logs/ApiUpdaterCheck.txt
 *.log
+Assembly-CSharp.csproj
+Logs/shadercompiler-UnityShaderCompiler.exe0.log
