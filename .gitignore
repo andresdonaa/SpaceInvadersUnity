@@ -12,6 +12,8 @@ Assets/AssetStoreTools*
 ExportedObj/
 .consulo/
 *.suo
+*.sln
+*.csproj
 *.tmp
 *.user
 *.userprefs
@@ -37,3 +39,6 @@ Logs/shadercompiler-UnityShaderCompiler.exe0.log
 Logs/ApiUpdaterCheck.txt
 Logs/ApiUpdaterCheck.txt
 Logs/ApiUpdaterCheck.txt
+*.log
+Assembly-CSharp.csproj
+Logs/shadercompiler-UnityShaderCompiler.exe0.log
