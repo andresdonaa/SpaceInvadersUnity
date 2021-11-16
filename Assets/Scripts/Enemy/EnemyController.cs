@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
+
         projectile = GetComponent<IFireable>();
         StartCoroutine(Fire());
 

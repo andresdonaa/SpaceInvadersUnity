@@ -39,6 +39,7 @@ public class WaveMovement : MonoBehaviour
         {
             Vector2 direction = moveRight ? Vector2.right : Vector2.left;
             transform.Translate(direction * waveStepRight);
+            Messenger.Default.Publish(new WaveMoveStepEvent());
 
             yield return new WaitForSeconds(waveDelaySpeed / waveSpeedModifier);
         }

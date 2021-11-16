@@ -114,11 +114,13 @@
     <Compile Include="Assets\Scripts\Events\EnemyEvents\EnemyTouchedSideBoundaryEvent.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\Monitor\IMessengerMonitor.cs" />
     <Compile Include="Assets\Scripts\Events\PlayerEvents\PlayerDieEvent.cs" />
+    <Compile Include="Assets\Scripts\Utils\BoundariesOrthographic.cs" />
     <Compile Include="Assets\Scripts\UI\Healthbar\HealthbarBase.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\ILogger.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\IMessenger.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\Utils\BoundariesOrthographic.cs" />
+    <Compile Include="Assets\Scripts\Events\EnemyEvents\WaveMoveStepEvent.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyAnimatorController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
