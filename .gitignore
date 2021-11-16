@@ -32,6 +32,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Logs/shadercompiler-UnityShaderCompiler.exe0.log
 *.log
 Logs/ApiUpdaterCheck.txt
 Logs/ApiUpdaterCheck.txt
