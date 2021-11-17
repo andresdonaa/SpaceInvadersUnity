@@ -1,8 +1,7 @@
-using SuperMaxim.Messaging;
 using Scripts.Events;
+using SuperMaxim.Messaging;
 using System.Collections;
 using UnityEngine;
-using System;
 
 public class WaveMovement : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public class WaveMovement : MonoBehaviour
 
     [Range(0.1f, 2f)]
     [SerializeField] private float waveStepRight = 1f;
-    
+
     private float waveSpeedModifier = 1f;
     private bool canMove = true;
     private bool moveRight = true;
@@ -21,11 +20,13 @@ public class WaveMovement : MonoBehaviour
     private void Awake()
     {
         Messenger.Default.Subscribe<EnemyTouchedSideBoundaryEvent>(OnEnemyTouchSideBoundary);
+        Messenger.Default.Subscribe<WaveRespawnEvent>(OnWaveRespawn);
     }
 
     private void OnDestroy()
     {
         Messenger.Default.Unsubscribe<EnemyTouchedSideBoundaryEvent>(OnEnemyTouchSideBoundary);
+        Messenger.Default.Unsubscribe<WaveRespawnEvent>(OnWaveRespawn);
     }
 
     private void Start()
@@ -49,5 +50,10 @@ public class WaveMovement : MonoBehaviour
     {
         moveRight = !moveRight;
         transform.Translate(Vector2.down * waveStepDown);
+    }
+
+    private void OnWaveRespawn(WaveRespawnEvent waveRespawnEvent)
+    {
+        moveRight = true;
     }
 }

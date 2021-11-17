@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Weapon\PlayerProjectile.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\ILoggerConfig.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\LogTarget.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyAnimatorController.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\Monitor\MessengerMonitor.cs" />
     <Compile Include="Assets\Scripts\UI\Healthbar\HealthbarEnemy.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Assets\Scripts\Messaging\Core\Objects\MonoBehaviourRoot.cs" />
     <Compile Include="Assets\Scripts\Utils\Blink.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\LogType.cs" />
+    <Compile Include="Assets\Scripts\Events\EnemyEvents\WaveMoveStepEvent.cs" />
     <Compile Include="Assets\Scripts\Messaging\Core\Extensions\CollectionExtensions.cs" />
     <Compile Include="Assets\Scripts\UI\LivesView.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\IMessengerSubscribe.cs" />
@@ -119,8 +121,7 @@
     <Compile Include="Assets\Scripts\Messaging\Logging\ILogger.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\IMessenger.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\Events\EnemyEvents\WaveMoveStepEvent.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyAnimatorController.cs" />
+    <Compile Include="Assets\Scripts\Events\EnemyEvents\WaveRespawnEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

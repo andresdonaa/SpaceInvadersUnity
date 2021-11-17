@@ -24,12 +24,27 @@ public class EnemySpawner : MonoBehaviour
         SetVariants();
     }
 
+    private void OnDestroy()
+    {
+        Messenger.Default.Unsubscribe<EnemyDestroyEvent>(OnEnemyDestroy);
+    }
+
     private void OnEnemyDestroy(EnemyDestroyEvent enemyDestroyEvent)
     {
         totalEnemiesCount--;
+        Debug.Log("Enemy Counter:" + totalEnemiesCount);
 
-        if(totalEnemiesCount <= 0)
-            Messenger.Default.Publish(new GameOverEvent());
+        if (totalEnemiesCount <= 0)   
+            Invoke(nameof(Respawn), 1f);
+    }
+   
+    private void Respawn()
+    {
+        Messenger.Default.Publish(new WaveRespawnEvent());
+        
+        spawnedEnemies = new List<EnemyController>();
+        Spawn();
+        SetVariants();
     }
 
     private void SetVariants()

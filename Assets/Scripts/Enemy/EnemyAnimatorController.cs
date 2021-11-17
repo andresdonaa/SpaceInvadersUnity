@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemyAnimatorController : MonoBehaviour
 {
     private Animator animator;
+    private EnemyController enemy;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        enemy = GetComponent<EnemyController>();
 
         Messenger.Default.Subscribe<WaveMoveStepEvent>(OnWaveMoveStep);
         Messenger.Default.Subscribe<EnemyDestroyEvent>(OnEnemyDestroy);
@@ -21,12 +23,13 @@ public class EnemyAnimatorController : MonoBehaviour
     }
 
     private void OnWaveMoveStep(WaveMoveStepEvent waveMoveStepEvent)
-    {
+    {        
         animator?.SetTrigger("AnimationStep");
     }
 
     private void OnEnemyDestroy(EnemyDestroyEvent enemyDestroyEvent)
     {
-        animator.enabled = false; //to show die sprite
+        if(enemyDestroyEvent.Enemy.Equals(enemy))
+            animator.enabled = false; //to show die sprite
     }
 }
