@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
         Messenger.Default.Subscribe<PlayerDieEvent>(OnPlayerDie);
         Messenger.Default.Subscribe<PlayerCollisionWithEnemyEvent>(OnPlayerCollisionWithEnemy);
         Messenger.Default.Subscribe<GameOverEvent>(OnGameOver);
+        Messenger.Default.Subscribe<WaveRespawnEvent>(OnWaveRespawn);
     }
 
     private void Unsubscribe()
@@ -38,6 +39,7 @@ public class GameController : MonoBehaviour
         Messenger.Default.Unsubscribe<EnemyDestroyEvent>(OnEnemyDestroy);
         Messenger.Default.Unsubscribe<PlayerCollisionWithEnemyEvent>(OnPlayerCollisionWithEnemy);
         Messenger.Default.Unsubscribe<GameOverEvent>(OnGameOver);
+        Messenger.Default.Unsubscribe<WaveRespawnEvent>(OnWaveRespawn);
     }
 
     private void OnPlayerCollisionWithEnemy(PlayerCollisionWithEnemyEvent playerCollisionWithEnemyEvent)
@@ -73,5 +75,10 @@ public class GameController : MonoBehaviour
     private void RestartGame()
     {
         SceneController.ReloadScene();
+    }
+
+    private void OnWaveRespawn(WaveRespawnEvent waveRespawnEvent)
+    {
+        Messenger.Default.Publish(new IncreaseDifficultyEvent(gameRules.increaseDifficultyFactor));
     }
 }

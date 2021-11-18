@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GameRules
   m_EditorClassIdentifier: 
   lives: 3
+  increaseDifficultyFactor: 1.25

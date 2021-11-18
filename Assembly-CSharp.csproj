@@ -125,6 +125,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerMovementController.cs" />
     <Compile Include="Assets\Scripts\Player\Fire.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyFire.cs" />
+    <Compile Include="Assets\Scripts\Events\GameEvents\IncreaseDifficultyEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
