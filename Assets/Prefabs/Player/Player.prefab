@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8079285945166991967}
   - component: {fileID: 8079285945166991964}
+  - component: {fileID: 9166075966674000373}
   - component: {fileID: 8079285945166991966}
+  - component: {fileID: 6250381210707805034}
   - component: {fileID: 4930876985342036609}
   - component: {fileID: 5927330890119441262}
   - component: {fileID: 8079285945166991965}
@@ -50,6 +52,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a2ae0d018344884b921eadd0bb872f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 655b310e868f6c342985ce3b38ede063, type: 2}
+--- !u!114 &9166075966674000373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079285945166991962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d232f7b65625524459e9d2f3d075d602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   rigidBody: {fileID: 8079285945166991965}
   playerData: {fileID: 11400000, guid: 655b310e868f6c342985ce3b38ede063, type: 2}
 --- !u!114 &8079285945166991966
@@ -69,6 +84,18 @@ MonoBehaviour:
     type: 3}
   spawnPoint: {fileID: 8079285945416856401}
   onFireClip: {fileID: 8300000, guid: bf75b984df8a84987bcf3a8bf6e2862d, type: 3}
+--- !u!114 &6250381210707805034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079285945166991962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c691bb41ce9df3a479f4979b5544271b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4930876985342036609
 MonoBehaviour:
   m_ObjectHideFlags: 0

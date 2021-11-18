@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 6832131975161370178}
   - component: {fileID: 6832131975161370180}
   - component: {fileID: 6832131975161370181}
+  - component: {fileID: 98246038942769003}
   - component: {fileID: 7265741354698753737}
   - component: {fileID: 6832131975161370179}
   - component: {fileID: 6832131975161370177}
@@ -101,6 +102,19 @@ MonoBehaviour:
     type: 3}
   spawnPoint: {fileID: 6832131974440545246}
   onFireClip: {fileID: 8300000, guid: 1be4472894949437694aead55c6da60f, type: 3}
+--- !u!114 &98246038942769003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832131975161370182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fc7c38fe98f64f47add043e7e1f0c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: b7e2bd0a1f6e0b7429436068f9925826, type: 2}
 --- !u!114 &7265741354698753737
 MonoBehaviour:
   m_ObjectHideFlags: 0

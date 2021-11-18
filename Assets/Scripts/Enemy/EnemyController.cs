@@ -1,7 +1,6 @@
 using Scripts.Events;
 using SuperMaxim.Messaging;
 using System;
-using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyData))]
@@ -15,36 +14,29 @@ public class EnemyController : MonoBehaviour
 
     private float health;
     private int score;
-    private float fireInterval;
     private ConsoleColor color;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D collider;
 
     public float Health { get => health; set => health = value; }
     public int Score { get => score; set => score = value; }
-    public float FireInterval { get => fireInterval; set => fireInterval = value; }
     public ConsoleColor Color { get => color; set => color = value; }
-
-    private IFireable projectile;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
-
-        projectile = GetComponent<IFireable>();
-        StartCoroutine(Fire());
-
-        InitData();
-        SetColor();
     }
 
     public void InitData()
     {
         Health = enemyData.health;
         Score = enemyData.score;
-        FireInterval = enemyData.fireInterval;
         Color = enemyData.color;
+
+        EnemyFire enemyFire = GetComponent<EnemyFire>();
+        if(enemyFire != null && !enemyFire.Equals(null))
+            enemyFire.FireInterval = enemyData.fireInterval;
     }
 
     public void SetColor()
@@ -81,17 +73,5 @@ public class EnemyController : MonoBehaviour
         healthbar.gameObject.SetActive(false);
         collider.enabled = false;
         Destroy(gameObject, 0.5f);
-    }
-
-    private IEnumerator Fire()
-    {
-        if (projectile != null)
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(FireInterval);
-                projectile.Fire();
-            }
-        }
     }
 }
