@@ -61,6 +61,7 @@ public class EnemyController : MonoBehaviour
         healthbar?.UpdateHealthbar(Health);
         if (Health <= 0)
         {
+            Debug.Log("Enter Die");
             Die();
         }
     }

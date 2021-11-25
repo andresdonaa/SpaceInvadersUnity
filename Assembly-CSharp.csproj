@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Messaging\Logging\LogTarget.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAnimatorController.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\Monitor\MessengerMonitor.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMovementController.cs" />
     <Compile Include="Assets\Scripts\UI\Healthbar\HealthbarEnemy.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Score\ScoreView.cs" />
@@ -73,10 +74,12 @@
     <Compile Include="Assets\ScriptableObjects\GameRules.cs" />
     <Compile Include="Assets\Scripts\Messaging\Core\Objects\MonoBehaviourSingleton.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\LogTargetExtensions.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyFire.cs" />
     <Compile Include="Assets\Scripts\Weapon\IFireable.cs" />
     <Compile Include="Assets\ScriptableObjects\ProjectileData.cs" />
     <Compile Include="Assets\Scripts\Messaging\Core\WeakRef\WeakRefWrapper.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\Subscriber.cs" />
+    <Compile Include="Assets\Scripts\Events\GameEvents\IncreaseDifficultyEvent.cs" />
     <Compile Include="Assets\Scripts\Level\SideBoundaries.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\Loggers.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyData.cs" />
@@ -101,6 +104,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Messaging\Core\Objects\Singleton.cs" />
     <Compile Include="Assets\Scripts\Events\EnemyEvents\EnemyDestroyEvent.cs" />
+    <Compile Include="Assets\Scripts\Player\Fire.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\Components\IPayloadCommand.cs" />
     <Compile Include="Assets\Scripts\Messaging\Core\Threading\IThreadDispatcher.cs" />
     <Compile Include="Assets\Scripts\Events\FireButtonPressedEvent.cs" />
@@ -122,10 +126,7 @@
     <Compile Include="Assets\Scripts\Messaging\Messaging\IMessenger.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Events\EnemyEvents\WaveRespawnEvent.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerMovementController.cs" />
-    <Compile Include="Assets\Scripts\Player\Fire.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyFire.cs" />
-    <Compile Include="Assets\Scripts\Events\GameEvents\IncreaseDifficultyEvent.cs" />
+    <Compile Include="Assets\Scripts\Utils\PlayerPrefsKeys.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -82,3 +82,14 @@ public class GameController : MonoBehaviour
         Messenger.Default.Publish(new IncreaseDifficultyEvent(gameRules.increaseDifficultyFactor));
     }
 }
+
+
+// PENDIENTES:
+// Límites de wave para distintos aspect ratio
+// Menu de pausa
+// Musica
+// Icono para build
+
+
+// BUGS
+// Respawn Wave cuando no están todos los enemigos destruidos (posiblemente se destruya más de una vez el mismo enemigo al disparar muy rapido)

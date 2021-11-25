@@ -9,4 +9,14 @@
             CurrentScore = currentScore;
         }
     }
+
+    public class HiscoreChangedEvent
+    {
+        public int CurrentHiscore { get; set; }
+
+        public HiscoreChangedEvent(int currentHiscore)
+        {
+            CurrentHiscore = currentHiscore;
+        }
+    }
 }
