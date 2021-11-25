@@ -42,6 +42,13 @@ public class GameController : MonoBehaviour
         Messenger.Default.Unsubscribe<WaveRespawnEvent>(OnWaveRespawn);
     }
 
+    private void RestartGame()
+    {
+        SceneController.ReloadScene();
+    }
+
+    #region Game Events
+
     private void OnPlayerCollisionWithEnemy(PlayerCollisionWithEnemyEvent playerCollisionWithEnemyEvent)
     {
         Messenger.Default.Publish(new GameOverEvent());
@@ -69,18 +76,15 @@ public class GameController : MonoBehaviour
     private void OnGameOver(GameOverEvent gameOverEvent)
     {
         Debug.Log("Game Over!");
-        Invoke("RestartGame", 1f);
-    }
-
-    private void RestartGame()
-    {
-        SceneController.ReloadScene();
+        Invoke(nameof(RestartGame), 1f);
     }
 
     private void OnWaveRespawn(WaveRespawnEvent waveRespawnEvent)
     {
         Messenger.Default.Publish(new IncreaseDifficultyEvent(gameRules.increaseDifficultyFactor));
     }
+
+    #endregion
 }
 
 

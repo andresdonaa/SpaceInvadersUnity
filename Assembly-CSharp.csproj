@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.11</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.12</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.12f1</UnityVersion>
@@ -106,6 +106,7 @@
     <Compile Include="Assets\Scripts\Events\EnemyEvents\EnemyDestroyEvent.cs" />
     <Compile Include="Assets\Scripts\Player\Fire.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\Components\IPayloadCommand.cs" />
+    <Compile Include="Assets\Scripts\Utils\PlayerPrefsKeys.cs" />
     <Compile Include="Assets\Scripts\Messaging\Core\Threading\IThreadDispatcher.cs" />
     <Compile Include="Assets\Scripts\Events\FireButtonPressedEvent.cs" />
     <Compile Include="Assets\Scripts\Events\EnemyEvents\EnemyTakeDamageEvent.cs" />
@@ -126,7 +127,8 @@
     <Compile Include="Assets\Scripts\Messaging\Messaging\IMessenger.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Events\EnemyEvents\WaveRespawnEvent.cs" />
-    <Compile Include="Assets\Scripts\Utils\PlayerPrefsKeys.cs" />
+    <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\PauseController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
