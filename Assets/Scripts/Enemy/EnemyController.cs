@@ -73,6 +73,7 @@ public class EnemyController : MonoBehaviour
         spriteRenderer.sprite = dieSprite;
         healthbar.gameObject.SetActive(false);
         collider.enabled = false;
+        transform.parent = null;
         Destroy(gameObject, 0.5f);
     }
 }

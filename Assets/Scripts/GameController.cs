@@ -89,10 +89,12 @@ public class GameController : MonoBehaviour
 
 
 // PENDIENTES:
+// Game over menu
+// Sólo los enemigos de la primer fila pueden disparar
 // Límites de wave para distintos aspect ratio
-// Menu de pausa
 // Musica
 // Icono para build
+// Compatibilidad con mando
 
 
 // BUGS

@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int rows = 4;
     [SerializeField] private int columns = 8;
 
-    private float spaceColumns = 1.5f, spaceRows = 1.5f;
+    private float spaceColumns = 1.5f, spaceRows = 1.25f;
     private List<EnemyController> spawnedEnemies = new List<EnemyController>();
     private int totalEnemiesCount = 0;
 

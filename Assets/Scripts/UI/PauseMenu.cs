@@ -1,35 +1,45 @@
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : MenuBase
 {
     [SerializeField] private GameObject pauseContainer;
+    [SerializeField] private KeyCode pauseButton = KeyCode.Escape;
+
+    private bool isGamePaused = false;
 
     private void Update()
     {
-        if (PauseController.isGamePaused && !pauseContainer.activeSelf)
-            pauseContainer.SetActive(true);
-        else if(!PauseController.isGamePaused && pauseContainer.activeSelf)
-            pauseContainer.SetActive(false);
+        if (Input.GetKeyDown(pauseButton))
+        {
+            TogglePause();
+            pauseContainer.SetActive(isGamePaused);
+        }
+    }
+
+    private void TogglePause()
+    {
+        isGamePaused = !isGamePaused;
+
+        if (isGamePaused)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
     }
 
     public void GoToMenu()
     {
-        PauseController.TogglePause();
+        TogglePause();
         SceneController.LoadScene("Menu");
     }
 
     public void ResumeGame()
     {
-        PauseController.TogglePause();
+        TogglePause();
         pauseContainer.SetActive(false);
     }
 
-    public void QuitGame()
+    public void Quit()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        QuitGame();
     }
 }

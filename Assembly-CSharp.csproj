@@ -119,6 +119,7 @@
     <Compile Include="Assets\Scripts\Events\PlayerEvents\PlayerCollisionWithEnemyEvent.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\ConsoleLogger.cs" />
     <Compile Include="Assets\Scripts\Events\EnemyEvents\EnemyTouchedSideBoundaryEvent.cs" />
+    <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\Monitor\IMessengerMonitor.cs" />
     <Compile Include="Assets\Scripts\Events\PlayerEvents\PlayerDieEvent.cs" />
     <Compile Include="Assets\Scripts\Utils\BoundariesOrthographic.cs" />
@@ -127,8 +128,7 @@
     <Compile Include="Assets\Scripts\Messaging\Messaging\IMessenger.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Events\EnemyEvents\WaveRespawnEvent.cs" />
-    <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
-    <Compile Include="Assets\Scripts\PauseController.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
