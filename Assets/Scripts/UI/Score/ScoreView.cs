@@ -13,7 +13,7 @@ public class ScoreView : MonoBehaviour
         Messenger.Default.Subscribe<ScoreChangedEvent>(UpdateScore);
         Messenger.Default.Subscribe<HiscoreChangedEvent>(UpdateHiscore);
 
-        SetHiscoreText(Score.GetHiscore().ToString());
+        SetHiscoreText(ScoreController.GetHiscore().ToString());
     }
 
     private void OnDestroy()

@@ -2,7 +2,7 @@
 {
     public class PlayerRespawnEvent
     {
-        public PlayerController Player { get; set; }
+        public PlayerController Player { get; private set; }
 
         public PlayerRespawnEvent(PlayerController player)
         {

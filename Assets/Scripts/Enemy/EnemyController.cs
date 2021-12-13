@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     private ConsoleColor color;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D collider;
+    private Animator animator;
 
     public float Health { get => health; set => health = value; }
     public int Score { get => score; set => score = value; }
@@ -26,6 +27,13 @@ public class EnemyController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        if (healthbar)
+            healthbar.SetMaxHealth(enemyData.health);
     }
 
     public void InitData()
@@ -35,7 +43,7 @@ public class EnemyController : MonoBehaviour
         Color = enemyData.color;
 
         EnemyFire enemyFire = GetComponent<EnemyFire>();
-        if(enemyFire != null && !enemyFire.Equals(null))
+        if (enemyFire != null && !enemyFire.Equals(null))
             enemyFire.FireInterval = enemyData.fireInterval;
     }
 
@@ -60,20 +68,24 @@ public class EnemyController : MonoBehaviour
         Health -= damageAmount;
         healthbar?.UpdateHealthbar(Health);
         if (Health <= 0)
-        {
-            Debug.Log("Enter Die");
+        {            
             Die();
         }
     }
 
     private void Die()
     {
-        Messenger.Default.Publish(new EnemyDestroyEvent(this));
         AudioSource.PlayClipAtPoint(enemyData.onDieClip, gameObject.transform.position);
         spriteRenderer.sprite = dieSprite;
         healthbar.gameObject.SetActive(false);
+        animator.enabled = false;
         collider.enabled = false;
         transform.parent = null;
         Destroy(gameObject, 0.5f);
+    }
+
+    private void OnDestroy()
+    {
+        Messenger.Default.Publish(new EnemyDestroyEvent(this));
     }
 }

@@ -2,7 +2,7 @@
 {
     public class ScoreChangedEvent
     {
-        public int CurrentScore { get; set; }
+        public int CurrentScore { get; private set; }
 
         public ScoreChangedEvent(int currentScore)
         {
@@ -12,7 +12,7 @@
 
     public class HiscoreChangedEvent
     {
-        public int CurrentHiscore { get; set; }
+        public int CurrentHiscore { get; private set; }
 
         public HiscoreChangedEvent(int currentHiscore)
         {

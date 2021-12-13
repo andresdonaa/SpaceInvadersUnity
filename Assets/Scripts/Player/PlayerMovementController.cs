@@ -6,12 +6,12 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private PlayerData playerData;
 
     private float speed;
-    private InputController input;
+    private IInput input;
     private Vector2 movement;
 
     private void Awake()
     {
-        input = new InputController();
+        input = new PlayerInputController();
         InitData();
     }
 

@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
         if (enemy != null)
         {
             Messenger.Default.Publish(new PlayerCollisionWithEnemyEvent());
+            return;
         }
 
         EnemyProjectile projectile = collision.GetComponent<EnemyProjectile>();

@@ -2,7 +2,7 @@
 {
     public class EnemyDestroyEvent
     {
-        public EnemyController Enemy { get; set; }
+        public EnemyController Enemy { get; private set; }
 
         public EnemyDestroyEvent(EnemyController enemy)
         {

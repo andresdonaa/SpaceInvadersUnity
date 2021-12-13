@@ -1,19 +1,15 @@
-using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthbarEnemy : HealthbarBase
 {
-    [SerializeField] private EnemyController enemy;
-
     private void Awake()
     {
         slider = GetComponent<Slider>();
     }
 
-    private void Start()
+    public void SetMaxHealth(float value)
     {
-        if (enemy != null)
-            SetMaxHealth(enemy.enemyData.health);
+        base.SetMaxHealth(value);
     }
 
     public void UpdateHealthbar(float health)

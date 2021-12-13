@@ -67,9 +67,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 Vector2 objectPosition = new Vector2(initialPosition.position.x + (spaceColumns * c), posY);
                 GameObject go = Instantiate(enemyPrefab, objectPosition, Quaternion.identity);
-                go.transform.SetParent(transform);
-                go.name = "Enemy" + (c + 1) + "-Row:" + (r + 1);
-
+                go.transform.SetParent(transform);                
                 spawnedEnemies.Add(go.GetComponent<EnemyController>());
             }
         }

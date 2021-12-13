@@ -2,12 +2,12 @@
 using SuperMaxim.Messaging;
 using UnityEngine;
 
-public class Score
+public class ScoreController
 {
     private int currentScore;
     private int hiscore;
 
-    public Score()
+    public ScoreController()
     {
         hiscore = GetHiscore();
     }
