@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         EnemyController enemy = collision.GetComponent<EnemyController>();
         if (enemy != null)
         {
-            Messenger.Default.Publish(new PlayerCollisionWithEnemyEvent());
+            Messenger.Default.Publish(new GameOverEvent());
             return;
         }
 

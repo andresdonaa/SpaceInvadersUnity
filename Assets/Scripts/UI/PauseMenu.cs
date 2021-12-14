@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PauseMenu : MenuBase
@@ -9,11 +10,19 @@ public class PauseMenu : MenuBase
 
     private void Update()
     {
-        if (Input.GetKeyDown(pauseButton))
-        {
+        if (Input.GetKeyDown(pauseButton) && CanPauseGame())
+        {            
             TogglePause();
-            pauseContainer.SetActive(isGamePaused);
+            pauseContainer.SetActive(isGamePaused);                        
         }
+    }
+
+    private bool CanPauseGame()
+    {
+        if (GameOverMenu.IsShowingGameOverMenu())
+            return false;
+
+        return true;
     }
 
     private void TogglePause()

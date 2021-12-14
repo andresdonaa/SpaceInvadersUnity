@@ -7,15 +7,13 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameRules gameRules;
 
     private ScoreController score;
-    private DifficultyController difficulty;
-    private GameOverController gameOver;
+    private DifficultyController difficulty;    
     private LivesController lives;
 
     private void Awake()
     {
         score = new ScoreController();
-        difficulty = new DifficultyController(gameRules.increaseDifficultyFactor);
-        gameOver = new GameOverController();
+        difficulty = new DifficultyController(gameRules.increaseDifficultyFactor);        
         lives = new LivesController(gameRules.lives);
 
         Subscribe();
@@ -28,19 +26,12 @@ public class GameController : MonoBehaviour
 
     private void Subscribe()
     {
-        Messenger.Default.Subscribe<EnemyDestroyEvent>(OnEnemyDestroy);
-        Messenger.Default.Subscribe<PlayerCollisionWithEnemyEvent>(OnPlayerCollisionWithEnemy);
+        Messenger.Default.Subscribe<EnemyDestroyEvent>(OnEnemyDestroy);        
     }
 
     private void Unsubscribe()
     {
-        Messenger.Default.Unsubscribe<EnemyDestroyEvent>(OnEnemyDestroy);
-        Messenger.Default.Unsubscribe<PlayerCollisionWithEnemyEvent>(OnPlayerCollisionWithEnemy);
-    }
-
-    private void OnPlayerCollisionWithEnemy(PlayerCollisionWithEnemyEvent playerCollisionWithEnemyEvent)
-    {
-        Messenger.Default.Publish(new GameOverEvent());
+        Messenger.Default.Unsubscribe<EnemyDestroyEvent>(OnEnemyDestroy);        
     }
 
     private void OnEnemyDestroy(EnemyDestroyEvent enemyDestroyEvent)
@@ -50,7 +41,7 @@ public class GameController : MonoBehaviour
 }
 
 // TO DO:
-// Game over menu
+// PlayerPrefs Adapter
 // Sólo los enemigos de la primer fila pueden disparar
 // Límites de wave para distintos aspect ratio
 // Musica

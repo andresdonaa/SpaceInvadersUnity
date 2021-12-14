@@ -9,7 +9,8 @@ public class HealthbarEnemy : HealthbarBase
 
     public void SetMaxHealth(float value)
     {
-        base.SetMaxHealth(value);
+        slider.maxValue = value;        
+        slider.value = value;
     }
 
     public void UpdateHealthbar(float health)

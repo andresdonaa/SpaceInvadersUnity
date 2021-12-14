@@ -22,6 +22,7 @@ public class WaveMovement : MonoBehaviour
         Messenger.Default.Subscribe<EnemyTouchedSideBoundaryEvent>(OnEnemyTouchSideBoundary);
         Messenger.Default.Subscribe<WaveRespawnEvent>(OnWaveRespawn);
         Messenger.Default.Subscribe<IncreaseDifficultyEvent>(OnIncreaseDifficulty);
+        Messenger.Default.Subscribe<GameOverEvent>(OnGameOverEvent);
     }
 
     private void OnDestroy()
@@ -29,6 +30,7 @@ public class WaveMovement : MonoBehaviour
         Messenger.Default.Unsubscribe<EnemyTouchedSideBoundaryEvent>(OnEnemyTouchSideBoundary);
         Messenger.Default.Unsubscribe<WaveRespawnEvent>(OnWaveRespawn);
         Messenger.Default.Unsubscribe<IncreaseDifficultyEvent>(OnIncreaseDifficulty);
+        Messenger.Default.Unsubscribe<GameOverEvent>(OnGameOverEvent);
     }
 
     private void Start()
@@ -46,6 +48,11 @@ public class WaveMovement : MonoBehaviour
 
             yield return new WaitForSeconds(waveDelaySpeed / waveSpeedModifier);
         }
+    }
+
+    private void OnGameOverEvent(GameOverEvent gameOverEvent)
+    {
+        canMove = false;
     }
 
     private void OnEnemyTouchSideBoundary(EnemyTouchedSideBoundaryEvent enemyTouchedSideBoundaryEvent)
