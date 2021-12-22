@@ -1,7 +1,8 @@
 ﻿using Scripts.Events;
 using SuperMaxim.Messaging;
+using System;
 
-internal class LivesController
+internal class LivesController : IDisposable
 {
     private int lives;
 
@@ -24,5 +25,10 @@ internal class LivesController
         {
             Messenger.Default.Publish(new GameOverEvent());
         }
+    }
+
+    public void Dispose()
+    {
+        Messenger.Default.Unsubscribe<PlayerDieEvent>(OnPlayerDie);
     }
 }

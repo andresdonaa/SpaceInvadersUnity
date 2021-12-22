@@ -2,26 +2,29 @@ using Scripts.Events;
 using SuperMaxim.Messaging;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(EnemiesConfiguration))]
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
+    [Header("Spawner Setup")]
     [SerializeField] private Transform initialPosition;
-    [SerializeField] private EnemyData[] enemyTypes;
-
+    [SerializeField] private EnemiesConfiguration enemiesConfiguration;
     [SerializeField] private int rows = 4;
     [SerializeField] private int columns = 8;
 
-    private float spaceColumns = 1.5f, spaceRows = 1.25f;
-    private List<EnemyController> spawnedEnemies = new List<EnemyController>();
+    private float spaceColumns = 1.5f, spaceRows = 1.25f;    
     private int totalEnemiesCount = 0;
+
+    private List<EnemyController> spawnedEnemies;
+    private EnemyFactory enemyFactory;
 
     private void Awake()
     {
         Messenger.Default.Subscribe<EnemyDestroyEvent>(OnEnemyDestroy);
+        spawnedEnemies = new List<EnemyController>();
+        enemyFactory = new EnemyFactory(enemiesConfiguration);
         Spawn();
-        SetVariants();
+        enemiesConfiguration.SetVariants(spawnedEnemies);
     }
 
     private void OnDestroy()
@@ -32,29 +35,18 @@ public class EnemySpawner : MonoBehaviour
     private void OnEnemyDestroy(EnemyDestroyEvent enemyDestroyEvent)
     {
         totalEnemiesCount--;
-        Debug.Log("Enemy Counter:" + totalEnemiesCount);
-
-        if (totalEnemiesCount <= 0)   
+        
+        if (totalEnemiesCount <= 0)
             Invoke(nameof(Respawn), 1f);
     }
-   
+
     private void Respawn()
     {
         Messenger.Default.Publish(new WaveRespawnEvent());
-        
+
         spawnedEnemies = new List<EnemyController>();
         Spawn();
-        SetVariants();
-    }
-
-    private void SetVariants()
-    {
-        foreach (EnemyController enemy in spawnedEnemies)
-        {
-            enemy.enemyData = enemyTypes[Random.Range(0, enemyTypes.Length)];
-            enemy.InitData();
-            enemy.SetColor();
-        }
+        enemiesConfiguration.SetVariants(spawnedEnemies);
     }
 
     private void Spawn()
@@ -66,9 +58,9 @@ public class EnemySpawner : MonoBehaviour
             for (int c = 0; c < columns; c++)
             {
                 Vector2 objectPosition = new Vector2(initialPosition.position.x + (spaceColumns * c), posY);
-                GameObject go = Instantiate(enemyPrefab, objectPosition, Quaternion.identity);
-                go.transform.SetParent(transform);                
-                spawnedEnemies.Add(go.GetComponent<EnemyController>());
+                GameObject enemyGO = enemyFactory.Create(objectPosition, Quaternion.identity);
+                enemyGO.transform.SetParent(transform);
+                spawnedEnemies.Add(enemyGO.GetComponent<EnemyController>());
             }
         }
 

@@ -7,7 +7,7 @@ public class LivesView : MonoBehaviour
 {
     [SerializeField] private GameObject lifeIconPrefab;
     [SerializeField] private Transform livesParent;
-    [SerializeField] private GameRules gameRules;
+    [SerializeField] private GameSettings gameSettings;
 
     private List<GameObject> livesIcon = new List<GameObject>();
 
@@ -15,7 +15,7 @@ public class LivesView : MonoBehaviour
     {
         Messenger.Default.Subscribe<PlayerDieEvent>(OnPlayerDieEvent);
 
-        for (int i = 0; i < gameRules.lives; i++)
+        for (int i = 0; i < gameSettings.lives; i++)
         {
             livesIcon.Add(Instantiate(lifeIconPrefab, livesParent));
         }

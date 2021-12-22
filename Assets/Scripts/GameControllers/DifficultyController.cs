@@ -1,7 +1,8 @@
 ﻿using Scripts.Events;
 using SuperMaxim.Messaging;
+using System;
 
-public class DifficultyController
+public class DifficultyController : IDisposable
 {
     private readonly float increaseDifficultyFactor;
 
@@ -20,5 +21,10 @@ public class DifficultyController
     private void OnWaveRespawn(WaveRespawnEvent waveRespawnEvent)
     {
         Messenger.Default.Publish(new IncreaseDifficultyEvent(increaseDifficultyFactor));
-    }   
+    }
+
+    public void Dispose()
+    {
+        Messenger.Default.Unsubscribe<WaveRespawnEvent>(OnWaveRespawn);
+    }
 }

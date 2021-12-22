@@ -67,10 +67,12 @@
     <Compile Include="Assets\Scripts\Messaging\Core\Threading\MainThreadDispatcher.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\UI\Healthbar\HealthbarPlayer.cs" />
+    <Compile Include="Assets\Scripts\UI\Score\IScoreView.cs" />
     <Compile Include="Assets\Scripts\Events\PlayerEvents\PlayerRespawnEvent.cs" />
     <Compile Include="Assets\Scripts\Weapon\EnemyProjectile.cs" />
+    <Compile Include="Assets\Scripts\Score\ScoreModel.cs" />
     <Compile Include="Assets\Scripts\Input\PlayerInputController.cs" />
-    <Compile Include="Assets\ScriptableObjects\GameRules.cs" />
+    <Compile Include="Assets\ScriptableObjects\GameSettings.cs" />
     <Compile Include="Assets\Scripts\Messaging\Core\Objects\MonoBehaviourSingleton.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\LogTargetExtensions.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyFire.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="Assets\Scripts\Messaging\Core\Extensions\CollectionExtensions.cs" />
     <Compile Include="Assets\Scripts\UI\LivesView.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\IMessengerSubscribe.cs" />
+    <Compile Include="Assets\Scripts\Score\IScorePresenter.cs" />
     <Compile Include="Assets\Scripts\Messaging\Core\Threading\DispatcherTask.cs" />
     <Compile Include="Assets\Scripts\Level\BottomBoundary.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Assets\Scripts\Messaging\Messaging\Components\PayloadCommandPublisher.cs" />
     <Compile Include="Assets\Scripts\Weapon\ProjectileLauncher.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\IMessengerPublish.cs" />
+    <Compile Include="Assets\Scripts\Score\ScorePresenter.cs" />
     <Compile Include="Assets\Scripts\Enemy\WaveMovement.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\Components\PayloadCommand.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\ConsoleLogger.cs" />
@@ -134,12 +138,9 @@
     <Compile Include="Assets\Scripts\UI\Healthbar\HealthbarBase.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\ILogger.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\IMessenger.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\GameController.cs" />
     <Compile Include="Assets\Scripts\Events\EnemyEvents\WaveRespawnEvent.cs" />
-    <Compile Include="Assets\Scripts\Score\ScoreModel.cs" />
-    <Compile Include="Assets\Scripts\Score\ScorePresenter.cs" />
-    <Compile Include="Assets\Scripts\UI\Score\IScoreView.cs" />
-    <Compile Include="Assets\Scripts\Score\IScorePresenter.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyFactory.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemiesConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
