@@ -55,7 +55,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Messaging\Core\WeakRef\WeakRefDelegate.cs" />
     <Compile Include="Assets\ScriptableObjects\Player\PlayerData.cs" />
-    <Compile Include="Assets\Scripts\Score\ScoreController.cs" />
     <Compile Include="Assets\Scripts\Weapon\PlayerProjectile.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\ILoggerConfig.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\LogTarget.cs" />
@@ -75,6 +74,7 @@
     <Compile Include="Assets\Scripts\Messaging\Core\Objects\MonoBehaviourSingleton.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\LogTargetExtensions.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyFire.cs" />
+    <Compile Include="Assets\Scripts\Utils\ServiceLocator.cs" />
     <Compile Include="Assets\Scripts\Weapon\IFireable.cs" />
     <Compile Include="Assets\ScriptableObjects\ProjectileData.cs" />
     <Compile Include="Assets\Scripts\Messaging\Core\WeakRef\WeakRefWrapper.cs" />
@@ -88,6 +88,8 @@
     <Compile Include="Assets\Scripts\Messaging\Core\Objects\MonoBehaviourRoot.cs" />
     <Compile Include="Assets\Scripts\Utils\Blink.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\LogType.cs" />
+    <Compile Include="Assets\Scripts\GameControllers\DifficultyController.cs" />
+    <Compile Include="Assets\Scripts\Installers\Installer.cs" />
     <Compile Include="Assets\Scripts\Events\EnemyEvents\WaveMoveStepEvent.cs" />
     <Compile Include="Assets\Scripts\Messaging\Core\Extensions\CollectionExtensions.cs" />
     <Compile Include="Assets\Scripts\UI\LivesView.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Assets\Scripts\Utils\Lifetime.cs" />
     <Compile Include="Assets\Scripts\Events\PlayerEvents\PlayerTakeDamageEvent.cs" />
     <Compile Include="Assets\Scripts\Weapon\ProjectileBase.cs" />
+    <Compile Include="Assets\Scripts\Utils\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\Events\ScoreEvents\ScoreChangedEvent.cs" />
     <Compile Include="Assets\Scripts\GameControllers\SceneController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
@@ -106,10 +109,14 @@
     <Compile Include="Assets\Scripts\Events\EnemyEvents\EnemyDestroyEvent.cs" />
     <Compile Include="Assets\Scripts\Player\Fire.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\Components\IPayloadCommand.cs" />
-    <Compile Include="Assets\Scripts\Utils\PlayerPrefsKeys.cs" />
+    <Compile Include="Assets\Scripts\Utils\DataSaverKeys.cs" />
+    <Compile Include="Assets\Scripts\Input\IInput.cs" />
     <Compile Include="Assets\Scripts\Messaging\Core\Threading\IThreadDispatcher.cs" />
+    <Compile Include="Assets\Scripts\UI\GameOverMenu.cs" />
+    <Compile Include="Assets\Scripts\Save\PlayerPrefsAdapter.cs" />
     <Compile Include="Assets\Scripts\Events\FireButtonPressedEvent.cs" />
     <Compile Include="Assets\Scripts\Events\EnemyEvents\EnemyTakeDamageEvent.cs" />
+    <Compile Include="Assets\Scripts\GameControllers\LivesController.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\IMessengerUnsubscribe.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\Components\PayloadCommandPublisher.cs" />
     <Compile Include="Assets\Scripts\Weapon\ProjectileLauncher.cs" />
@@ -122,16 +129,17 @@
     <Compile Include="Assets\Scripts\Messaging\Messaging\Monitor\IMessengerMonitor.cs" />
     <Compile Include="Assets\Scripts\Events\PlayerEvents\PlayerDieEvent.cs" />
     <Compile Include="Assets\Scripts\UI\MenuBase.cs" />
+    <Compile Include="Assets\Scripts\InterfaceAdapters\IDataSaver.cs" />
     <Compile Include="Assets\Scripts\Utils\BoundariesOrthographic.cs" />
     <Compile Include="Assets\Scripts\UI\Healthbar\HealthbarBase.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\ILogger.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\IMessenger.cs" />
     <Compile Include="Assets\Scripts\GameControllers\GameController.cs" />
     <Compile Include="Assets\Scripts\Events\EnemyEvents\WaveRespawnEvent.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\DifficultyController.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\LivesController.cs" />
-    <Compile Include="Assets\Scripts\Input\IInput.cs" />
-    <Compile Include="Assets\Scripts\UI\GameOverMenu.cs" />
+    <Compile Include="Assets\Scripts\Score\ScoreModel.cs" />
+    <Compile Include="Assets\Scripts\Score\ScorePresenter.cs" />
+    <Compile Include="Assets\Scripts\UI\Score\IScoreView.cs" />
+    <Compile Include="Assets\Scripts\Score\IScorePresenter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
