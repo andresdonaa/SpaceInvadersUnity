@@ -1101,7 +1101,7 @@ MonoBehaviour:
     type: 3}
   gameOverMenuViewPrefab: {fileID: 610696256905522415, guid: 523a0d866024bf248aac1e7e447ad5b4,
     type: 3}
-  canvasParentViews: {fileID: 697093507}
+  canvasParentViews: {fileID: 697093508}
 --- !u!4 &1878435877
 Transform:
   m_ObjectHideFlags: 0

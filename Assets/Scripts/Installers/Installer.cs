@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Installer : MonoBehaviour
@@ -7,27 +8,35 @@ public class Installer : MonoBehaviour
     [Header("Views")]
     [SerializeField] private PauseMenuView pauseMenuViewPrefab;
     [SerializeField] private GameOverMenuView gameOverMenuViewPrefab;
-    [SerializeField] private GameObject canvasParentViews;
+    [SerializeField] private Transform canvasParentViews;
 
     private DifficultyController difficulty;
     private LivesController lives;
 
     private void Start()
     {
+        InitViews();
+        InitControllers();        
+        RegisterServices();
+    }
+  
+    private void InitViews()
+    {
         PauseMenuViewModel pauseMenuViewModel = new PauseMenuViewModel();
-        IPauseMenuView pauseMenuViewInstance = Instantiate(pauseMenuViewPrefab, canvasParentViews.transform);
+        IPauseMenuView pauseMenuViewInstance = Instantiate(pauseMenuViewPrefab, canvasParentViews);
         IPauseMenuPresenter pauseMenuPresenter = new PauseMenuPresenter(pauseMenuViewInstance, pauseMenuViewModel);
         pauseMenuViewInstance.Configure(pauseMenuViewModel, pauseMenuPresenter);
 
         GameOverMenuViewModel gameOverMenuViewModel = new GameOverMenuViewModel();
-        IGameOverMenuView gameOverMenuViewInstance = Instantiate(gameOverMenuViewPrefab, canvasParentViews.transform);
+        IGameOverMenuView gameOverMenuViewInstance = Instantiate(gameOverMenuViewPrefab, canvasParentViews);
         IGameOverMenuPresenter gameOverMenuPresenter = new GameOverMenuPresenter(gameOverMenuViewInstance, gameOverMenuViewModel);
         gameOverMenuViewInstance.Configure(gameOverMenuViewModel, gameOverMenuPresenter);
+    }
 
+    private void InitControllers()
+    {
         difficulty = new DifficultyController(gameSettings.increaseDifficultyFactor);
         lives = new LivesController(gameSettings.lives);
-
-        RegisterServices();
     }
 
     private void RegisterServices()

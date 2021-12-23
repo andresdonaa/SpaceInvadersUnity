@@ -1,5 +1,3 @@
-using Scripts.Events;
-using SuperMaxim.Messaging;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,14 +7,13 @@ public class GameOverMenuView : MenuBase, IGameOverMenuView
     [SerializeField] private Button playAgainButton;
     [SerializeField] private Button menuButton;
     [SerializeField] private Button quitButton;
-    
+
     private IGameOverMenuPresenter gameOverMenuPresenter;
     private GameOverMenuViewModel gameOverMenuViewModel;
 
     private void Awake()
     {
         GameOverMenuViewModel.IsGameOverMenuActive = false;
-        Messenger.Default.Subscribe<GameOverEvent>(OnGameOverEvent);
     }
 
     private void Start()
@@ -28,7 +25,7 @@ public class GameOverMenuView : MenuBase, IGameOverMenuView
 
     private void OnDestroy()
     {
-        Messenger.Default.Unsubscribe<GameOverEvent>(OnGameOverEvent);
+        gameOverMenuPresenter.Dispose();
 
         playAgainButton.onClick.RemoveListener(PlayAgain);
         menuButton.onClick.RemoveListener(GoToMenu);
@@ -41,7 +38,7 @@ public class GameOverMenuView : MenuBase, IGameOverMenuView
         this.gameOverMenuViewModel = gameOverMenuViewModel;
     }
 
-    private void OnGameOverEvent(GameOverEvent gameOverEvent)
+    public void GameOver()
     {
         gameOverContainer.SetActive(true);
         GameOverMenuViewModel.IsGameOverMenuActive = true;
@@ -49,38 +46,16 @@ public class GameOverMenuView : MenuBase, IGameOverMenuView
 
     public void GoToMenu()
     {
-        SceneController.LoadScene("Menu");
+        gameOverMenuPresenter.GoToMenu();
     }
 
     public void PlayAgain()
     {
-        SceneController.ReloadScene();
+        gameOverMenuPresenter.PlayAgain();
     }
 
     public void Quit()
     {
         QuitGame();
-    }
-}
-
-public interface IGameOverMenuView
-{
-    void Configure(GameOverMenuViewModel gameOverMenuViewModel, IGameOverMenuPresenter gameOverMenuPresenter);
-}
-
-public interface IGameOverMenuPresenter
-{
-    
-}
-
-public class GameOverMenuPresenter : IGameOverMenuPresenter
-{
-    private IGameOverMenuView gameOverMenuViewInstance;
-    private GameOverMenuViewModel gameOverMenuViewModel;
-
-    public GameOverMenuPresenter(IGameOverMenuView gameOverMenuViewInstance, GameOverMenuViewModel gameOverMenuViewModel)
-    {
-        this.gameOverMenuViewInstance = gameOverMenuViewInstance;
-        this.gameOverMenuViewModel = gameOverMenuViewModel;
     }
 }

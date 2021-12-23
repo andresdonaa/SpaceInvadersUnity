@@ -17,12 +17,12 @@ public class PauseMenuView : MenuBase, IPauseMenuView
     {
         resumeButton.onClick.AddListener(ResumeGame);
         menuButton.onClick.AddListener(GoToMenu);
-        quitButton.onClick.AddListener(Quit);        
+        quitButton.onClick.AddListener(Quit);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(pauseButton) && CanPauseGame())
+        if (Input.GetKeyDown(pauseButton) && pauseMenuPresenter.CanPauseGame())
         {
             pauseMenuPresenter.TogglePause();
             pauseContainer.SetActive(pauseMenuViewModel.IsGamePaused);
@@ -42,18 +42,10 @@ public class PauseMenuView : MenuBase, IPauseMenuView
         this.pauseMenuViewModel = pauseMenuViewModel;
     }
 
-    private bool CanPauseGame()
-    {
-        if (GameOverMenuViewModel.IsGameOverMenuActive)
-            return false;
-
-        return true;
-    }   
-
     public void GoToMenu()
     {
         pauseMenuPresenter.TogglePause();
-        SceneController.LoadScene("Menu");
+        pauseMenuPresenter.GoToMenu();
     }
 
     public void ResumeGame()
@@ -66,41 +58,4 @@ public class PauseMenuView : MenuBase, IPauseMenuView
     {
         QuitGame();
     }
-}
-
-public class PauseMenuPresenter : IPauseMenuPresenter
-{
-    private IPauseMenuView pauseMenuView;
-    private PauseMenuViewModel pauseMenuViewModel;
-
-    public PauseMenuPresenter(IPauseMenuView pauseMenuView, PauseMenuViewModel pauseMenuViewModel)
-    {
-        this.pauseMenuViewModel = pauseMenuViewModel;
-        this.pauseMenuView = pauseMenuView;
-    }
-
-    public void TogglePause()
-    {
-        pauseMenuViewModel.IsGamePaused = !pauseMenuViewModel.IsGamePaused;
-
-        if (pauseMenuViewModel.IsGamePaused)
-            Time.timeScale = 0;
-        else
-            Time.timeScale = 1;
-    }
-}
-
-public class PauseMenuViewModel
-{
-    public bool IsGamePaused { get; set; } = false;    
-}
-
-public interface IPauseMenuPresenter
-{
-    void TogglePause();
-}
-
-public interface IPauseMenuView
-{
-    void Configure(PauseMenuViewModel pauseMenuViewModel, IPauseMenuPresenter pauseMenuPresenter);
 }
