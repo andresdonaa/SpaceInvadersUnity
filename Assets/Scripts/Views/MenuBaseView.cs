@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class MenuBase : MonoBehaviour
+public abstract class MenuBaseView : MonoBehaviour
 {
     protected void QuitGame()
     {

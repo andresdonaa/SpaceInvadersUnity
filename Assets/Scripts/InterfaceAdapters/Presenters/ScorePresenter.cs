@@ -4,15 +4,16 @@ using SuperMaxim.Messaging;
 public class ScorePresenter : IScorePresenter
 {
     private IScoreView scoreView;
-    private ScoreModel scoreModel;
+    private ScoreViewModel scoreModel;
     private IDataSaver dataSaver;
 
-    public ScorePresenter(IScoreView scoreView)
+    public ScorePresenter(IScoreView scoreView, ScoreViewModel scoreViewModel)
     {
         Subscribe();
 
         dataSaver = ServiceLocator.Instance.GetService<IDataSaver>();
-        scoreModel = new ScoreModel();
+        
+        this.scoreModel = scoreViewModel;
         scoreModel.Hiscore = GetHiscore();
 
         this.scoreView = scoreView;

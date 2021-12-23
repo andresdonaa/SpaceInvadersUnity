@@ -5,17 +5,19 @@ public class ScoreView : MonoBehaviour, IScoreView
 {
     [SerializeField] private Text scoreText;
     [SerializeField] private Text hiscoreText;
-
+    
+    private ScoreViewModel scoreViewModel;
     private IScorePresenter scorePresenter;
-
-    private void Start()
-    {
-        scorePresenter = new ScorePresenter(this);
-    }
 
     private void OnDestroy()
     {
         scorePresenter.Unsubscribe();
+    }
+
+    public void Configure(ScoreViewModel scoreViewModel, IScorePresenter scorePresenter)
+    {
+        this.scoreViewModel = scoreViewModel;
+        this.scorePresenter = scorePresenter;
     }
 
     public void SetHiscoreText(string value)

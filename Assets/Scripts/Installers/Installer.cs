@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Installer : MonoBehaviour
@@ -8,6 +7,7 @@ public class Installer : MonoBehaviour
     [Header("Views")]
     [SerializeField] private PauseMenuView pauseMenuViewPrefab;
     [SerializeField] private GameOverMenuView gameOverMenuViewPrefab;
+    [SerializeField] private ScoreView scoreViewPrefab;
     [SerializeField] private Transform canvasParentViews;
 
     private DifficultyController difficulty;
@@ -15,11 +15,11 @@ public class Installer : MonoBehaviour
 
     private void Start()
     {
-        InitViews();
-        InitControllers();        
         RegisterServices();
+        InitViews();
+        InitControllers();
     }
-  
+
     private void InitViews()
     {
         PauseMenuViewModel pauseMenuViewModel = new PauseMenuViewModel();
@@ -31,6 +31,11 @@ public class Installer : MonoBehaviour
         IGameOverMenuView gameOverMenuViewInstance = Instantiate(gameOverMenuViewPrefab, canvasParentViews);
         IGameOverMenuPresenter gameOverMenuPresenter = new GameOverMenuPresenter(gameOverMenuViewInstance, gameOverMenuViewModel);
         gameOverMenuViewInstance.Configure(gameOverMenuViewModel, gameOverMenuPresenter);
+
+        ScoreViewModel scoreViewModel = new ScoreViewModel();
+        IScoreView scoreViewInstance = Instantiate(scoreViewPrefab, canvasParentViews);
+        IScorePresenter scorePresenter = new ScorePresenter(scoreViewInstance, scoreViewModel);
+        scoreViewInstance.Configure(scoreViewModel, scorePresenter);
     }
 
     private void InitControllers()

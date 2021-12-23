@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenu : MenuBase
+public class MainMenuView : MenuBaseView, IMainMenuView
 {
     [SerializeField] private Button playButton;
     [SerializeField] private Button quitButton;
+
+    private IMainMenuPresenter mainMenuPresenter;
 
     private void Start()
     {
@@ -18,12 +20,17 @@ public class MainMenu : MenuBase
         quitButton.onClick.RemoveListener(Quit);
     }
 
-    public void PlayGame()
-    {
-        SceneController.LoadScene("Gameplay");
+    public void Configure(IMainMenuPresenter mainMenuPresenter)
+    {        
+        this.mainMenuPresenter = mainMenuPresenter;
     }
 
-    public void Quit()
+    private void PlayGame()
+    {
+        mainMenuPresenter.PlayGame();        
+    }
+
+    private void Quit()
     {
         QuitGame();
     }

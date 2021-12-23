@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOverMenuView : MenuBase, IGameOverMenuView
+public class GameOverMenuView : MenuBaseView, IGameOverMenuView
 {
     [SerializeField] private GameObject gameOverContainer;
     [SerializeField] private Button playAgainButton;

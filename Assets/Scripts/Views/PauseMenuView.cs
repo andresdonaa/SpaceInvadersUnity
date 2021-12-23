@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseMenuView : MenuBase, IPauseMenuView
+public class PauseMenuView : MenuBaseView, IPauseMenuView
 {
     [SerializeField] private GameObject pauseContainer;
     [SerializeField] private KeyCode pauseButton = KeyCode.Escape;

@@ -2,4 +2,5 @@
 {
     void SetHiscoreText(string text);
     void SetScoreText(string text);
+    void Configure(ScoreViewModel scoreViewModel, IScorePresenter scorePresenter);
 }
