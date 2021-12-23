@@ -4,11 +4,26 @@ public class Installer : MonoBehaviour
 {
     [SerializeField] private GameSettings gameSettings;
 
+    [Header("Views")]
+    [SerializeField] private PauseMenuView pauseMenuViewPrefab;
+    [SerializeField] private GameOverMenuView gameOverMenuViewPrefab;
+    [SerializeField] private GameObject canvasParentViews;
+
     private DifficultyController difficulty;
     private LivesController lives;
 
-    private void Awake()
+    private void Start()
     {
+        PauseMenuViewModel pauseMenuViewModel = new PauseMenuViewModel();
+        IPauseMenuView pauseMenuViewInstance = Instantiate(pauseMenuViewPrefab, canvasParentViews.transform);
+        IPauseMenuPresenter pauseMenuPresenter = new PauseMenuPresenter(pauseMenuViewInstance, pauseMenuViewModel);
+        pauseMenuViewInstance.Configure(pauseMenuViewModel, pauseMenuPresenter);
+
+        GameOverMenuViewModel gameOverMenuViewModel = new GameOverMenuViewModel();
+        IGameOverMenuView gameOverMenuViewInstance = Instantiate(gameOverMenuViewPrefab, canvasParentViews.transform);
+        IGameOverMenuPresenter gameOverMenuPresenter = new GameOverMenuPresenter(gameOverMenuViewInstance, gameOverMenuViewModel);
+        gameOverMenuViewInstance.Configure(gameOverMenuViewModel, gameOverMenuPresenter);
+
         difficulty = new DifficultyController(gameSettings.increaseDifficultyFactor);
         lives = new LivesController(gameSettings.lives);
 
@@ -29,7 +44,6 @@ public class Installer : MonoBehaviour
 }
 
 // TO DO:
-// Add listener on click menues
 // Sólo los enemigos de la primer fila pueden disparar
 // Límites de wave para distintos aspect ratio
 // Musica

@@ -115,7 +115,7 @@
     <Compile Include="Assets\Scripts\Utils\DataSaverKeys.cs" />
     <Compile Include="Assets\Scripts\Input\IInput.cs" />
     <Compile Include="Assets\Scripts\Messaging\Core\Threading\IThreadDispatcher.cs" />
-    <Compile Include="Assets\Scripts\UI\GameOverMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\GameOverMenuView.cs" />
     <Compile Include="Assets\Scripts\Save\PlayerPrefsAdapter.cs" />
     <Compile Include="Assets\Scripts\Events\FireButtonPressedEvent.cs" />
     <Compile Include="Assets\Scripts\Events\EnemyEvents\EnemyTakeDamageEvent.cs" />
@@ -129,7 +129,7 @@
     <Compile Include="Assets\Scripts\Messaging\Messaging\Components\PayloadCommand.cs" />
     <Compile Include="Assets\Scripts\Messaging\Logging\ConsoleLogger.cs" />
     <Compile Include="Assets\Scripts\Events\EnemyEvents\EnemyTouchedSideBoundaryEvent.cs" />
-    <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\PauseMenuView.cs" />
     <Compile Include="Assets\Scripts\Messaging\Messaging\Monitor\IMessengerMonitor.cs" />
     <Compile Include="Assets\Scripts\Events\PlayerEvents\PlayerDieEvent.cs" />
     <Compile Include="Assets\Scripts\UI\MenuBase.cs" />
@@ -141,6 +141,7 @@
     <Compile Include="Assets\Scripts\Events\EnemyEvents\WaveRespawnEvent.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyFactory.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemiesConfiguration.cs" />
+    <Compile Include="Assets\Scripts\Installers\GameOverMenuViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
