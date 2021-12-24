@@ -60,7 +60,6 @@ public class Installer : MonoBehaviour
 // TO DO:
 // Sólo los enemigos de la primer fila pueden disparar
 // Límites de wave para distintos aspect ratio
-// Musica
 // Icono para build
 // Compatibilidad con mando
 // Unit testing
