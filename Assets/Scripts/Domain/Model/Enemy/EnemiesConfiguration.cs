@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemiesConfiguration : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private EnemyData[] enemyTypes;
+    [SerializeField] private EnemyDataSO[] enemyTypes;
 
     public GameObject GetEnemyPrefab()
     {

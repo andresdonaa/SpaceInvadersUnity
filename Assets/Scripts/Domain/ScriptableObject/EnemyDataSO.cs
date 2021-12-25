@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EnemyData", menuName = "Enemy")]
-public class EnemyData : ScriptableObject
+public class EnemyDataSO : ScriptableObject
 {
     public float health = 100f;
 

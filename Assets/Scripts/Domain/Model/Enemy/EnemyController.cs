@@ -3,14 +3,14 @@ using SuperMaxim.Messaging;
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyData))]
+[RequireComponent(typeof(EnemyDataSO))]
 public class EnemyController : MonoBehaviour
 {
-    public EnemyData enemyData;
+    public EnemyDataSO enemyData;
 
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private Sprite dieSprite;
-    [SerializeField] private HealthbarEnemy healthbar;
+    [SerializeField] private HealthbarEnemyView healthbar;
 
     private float health;
     private int score;

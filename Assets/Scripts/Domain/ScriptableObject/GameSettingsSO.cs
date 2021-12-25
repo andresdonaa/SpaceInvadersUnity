@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameSettings", menuName = "Settings")]
-public class GameSettings : ScriptableObject
+public class GameSettingsSO : ScriptableObject
 {
     public int lives = 3;
 

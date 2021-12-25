@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
-public abstract class HealthbarBase : MonoBehaviour
+public abstract class HealthbarBaseView : MonoBehaviour
 {
     protected Slider slider;
     

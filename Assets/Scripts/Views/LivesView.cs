@@ -7,7 +7,7 @@ public class LivesView : MonoBehaviour
 {
     [SerializeField] private GameObject lifeIconPrefab;
     [SerializeField] private Transform livesParent;
-    [SerializeField] private GameSettings gameSettings;
+    [SerializeField] private GameSettingsSO gameSettings;
 
     private List<GameObject> livesIcon = new List<GameObject>();
 

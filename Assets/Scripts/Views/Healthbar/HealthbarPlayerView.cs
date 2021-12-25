@@ -2,7 +2,7 @@ using UnityEngine.UI;
 using Scripts.Events;
 using SuperMaxim.Messaging;
 
-public class HealthbarPlayer : HealthbarBase
+public class HealthbarPlayerView : HealthbarBaseView
 {    
     private void Awake()
     {

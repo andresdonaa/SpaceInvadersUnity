@@ -1,6 +1,6 @@
 using UnityEngine.UI;
 
-public class HealthbarEnemy : HealthbarBase
+public class HealthbarEnemyView : HealthbarBaseView
 {
     private void Awake()
     {

@@ -4,10 +4,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(PlayerData))]
+[RequireComponent(typeof(PlayerDataSO))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private PlayerData playerData;
+    [SerializeField] private PlayerDataSO playerData;
 
     private float health;
 

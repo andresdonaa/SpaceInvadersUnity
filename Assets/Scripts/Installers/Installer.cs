@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Installer : MonoBehaviour
 {
-    [SerializeField] private GameSettings gameSettings;
+    [SerializeField] private GameSettingsSO gameSettings;
 
     [Header("Views")]
     [SerializeField] private PauseMenuView pauseMenuViewPrefab;
