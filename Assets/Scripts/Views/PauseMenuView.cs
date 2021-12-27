@@ -13,6 +13,8 @@ public class PauseMenuView : MenuBaseView, IPauseMenuView
     private IPauseMenuPresenter pauseMenuPresenter;
     private PauseMenuViewModel pauseMenuViewModel;
 
+    private const string altPauseButtonName = "Cancel";
+
     private void Start()
     {
         resumeButton.onClick.AddListener(ResumeGame);
@@ -22,7 +24,7 @@ public class PauseMenuView : MenuBaseView, IPauseMenuView
 
     private void Update()
     {
-        if (Input.GetKeyDown(pauseButton) && pauseMenuPresenter.CanPauseGame())
+        if ((Input.GetKeyDown(pauseButton) || Input.GetButtonDown(altPauseButtonName)) && pauseMenuPresenter.CanPauseGame())
         {
             pauseMenuPresenter.TogglePause();
             pauseContainer.SetActive(pauseMenuViewModel.IsGamePaused);

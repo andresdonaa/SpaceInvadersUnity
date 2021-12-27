@@ -59,12 +59,9 @@ public class Installer : MonoBehaviour
 }
 
 // TO DO:
-// Compatibilidad con mando
 // Unit testing
-// ART
+// Minor bugs
 // Add namespaces
-
-// BUGS
 
 // IMPROVEMENTS
 // Object pooling (enemies, player bullets, enemy bullets)
