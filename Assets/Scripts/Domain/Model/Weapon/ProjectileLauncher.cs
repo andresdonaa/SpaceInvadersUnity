@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class ProjectileLauncher : MonoBehaviour, IFireable
 {
-    [SerializeField] private float speed = 1f;    
+    [SerializeField] private float speed = 1f;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private AudioClip onFireClip;
+
+    public Transform SpawnPoint { get => spawnPoint; }
 
     public void Fire()
     {

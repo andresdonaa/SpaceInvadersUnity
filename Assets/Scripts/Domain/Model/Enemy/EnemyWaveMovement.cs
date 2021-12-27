@@ -3,7 +3,7 @@ using SuperMaxim.Messaging;
 using System.Collections;
 using UnityEngine;
 
-public class WaveMovement : MonoBehaviour
+public class EnemyWaveMovement : MonoBehaviour
 {
     [SerializeField] private float waveStepDown = 1f;
 
@@ -56,9 +56,9 @@ public class WaveMovement : MonoBehaviour
     }
 
     private void OnEnemyTouchSideBoundary(EnemyTouchedSideBoundaryEvent enemyTouchedSideBoundaryEvent)
-    {
+    {        
         moveRight = !moveRight;
-        transform.Translate(Vector2.down * waveStepDown);
+        transform.Translate(Vector2.down * waveStepDown);     
     }
 
     private void OnWaveRespawn(WaveRespawnEvent waveRespawnEvent)

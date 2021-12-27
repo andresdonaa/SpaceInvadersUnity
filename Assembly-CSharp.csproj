@@ -71,19 +71,19 @@
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Core\Threading\MainThreadDispatcher.cs" />
     <Compile Include="Assets\Scripts\Domain\Model\Enemy\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Views\Healthbar\HealthbarPlayerView.cs" />
-    <Compile Include="Assets\Scripts\InterfaceAdapters\Controllers\ViewModels\GameOverMenuViewModel.cs" />
+    <Compile Include="Assets\Scripts\InterfaceAdapters\ViewModels\GameOverMenuViewModel.cs" />
     <Compile Include="Assets\Scripts\Views\IScoreView.cs" />
     <Compile Include="Assets\Scripts\Application\Events\PlayerEvents\PlayerRespawnEvent.cs" />
-    <Compile Include="Assets\Scripts\InterfaceAdapters\Controllers\ViewModels\PauseMenuViewModel.cs" />
+    <Compile Include="Assets\Scripts\InterfaceAdapters\ViewModels\PauseMenuViewModel.cs" />
     <Compile Include="Assets\Scripts\Installers\MenuInstaller.cs" />
     <Compile Include="Assets\Scripts\Domain\Model\Weapon\EnemyProjectile.cs" />
-    <Compile Include="Assets\Scripts\InterfaceAdapters\Controllers\ViewModels\ScoreViewModel.cs" />
+    <Compile Include="Assets\Scripts\InterfaceAdapters\ViewModels\ScoreViewModel.cs" />
     <Compile Include="Assets\Scripts\Domain\Model\Player\PlayerInputController.cs" />
     <Compile Include="Assets\Scripts\Domain\ScriptableObject\GameSettingsSO.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Core\Objects\MonoBehaviourSingleton.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Logging\LogTargetExtensions.cs" />
     <Compile Include="Assets\Scripts\Domain\Model\Enemy\EnemyFire.cs" />
-    <Compile Include="Assets\Scripts\Application\Utils\ServiceLocator.cs" />
+    <Compile Include="Assets\Scripts\SystemUtilities\ServiceLocator.cs" />
     <Compile Include="Assets\Scripts\Domain\Model\Weapon\IFireable.cs" />
     <Compile Include="Assets\Scripts\InterfaceAdapters\Presenters\MainMenuPresenter.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Core\WeakRef\WeakRefWrapper.cs" />
@@ -96,7 +96,7 @@
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Logging\ConsoleLoggerConfig.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Messaging\Messenger.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Core\Objects\MonoBehaviourRoot.cs" />
-    <Compile Include="Assets\Scripts\Application\Utils\Blink.cs" />
+    <Compile Include="Assets\Scripts\SystemUtilities\Blink.cs" />
     <Compile Include="Assets\Scripts\InterfaceAdapters\Presenters\PauseMenuPresenter.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Logging\LogType.cs" />
     <Compile Include="Assets\Scripts\InterfaceAdapters\Controllers\DifficultyController.cs" />
@@ -110,10 +110,10 @@
     <Compile Include="Assets\Scripts\Domain\Model\Level\BottomBoundary.cs" />
     <Compile Include="Assets\Scripts\Domain\Model\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Application\Events\GameEvents\GameOverEvent.cs" />
-    <Compile Include="Assets\Scripts\Application\Utils\Lifetime.cs" />
+    <Compile Include="Assets\Scripts\SystemUtilities\Lifetime.cs" />
     <Compile Include="Assets\Scripts\Application\Events\PlayerEvents\PlayerTakeDamageEvent.cs" />
     <Compile Include="Assets\Scripts\Domain\Model\Weapon\ProjectileBase.cs" />
-    <Compile Include="Assets\Scripts\Application\Utils\DontDestroy.cs" />
+    <Compile Include="Assets\Scripts\SystemUtilities\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\Application\Events\ScoreEvents\ScoreChangedEvent.cs" />
     <Compile Include="Assets\Scripts\InterfaceAdapters\Controllers\SceneController.cs" />
     <Compile Include="Assets\Scripts\Domain\Model\Enemy\EnemyController.cs" />
@@ -122,7 +122,7 @@
     <Compile Include="Assets\Scripts\Domain\Model\Player\Fire.cs" />
     <Compile Include="Assets\Scripts\InterfaceAdapters\Presenters\IGameOverMenuPresenter.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Messaging\Components\IPayloadCommand.cs" />
-    <Compile Include="Assets\Scripts\Application\Utils\DataSaverKeys.cs" />
+    <Compile Include="Assets\Scripts\SystemUtilities\DataSaverKeys.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Input\IInput.cs" />
     <Compile Include="Assets\Scripts\Views\IGameOverMenuView.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Core\Threading\IThreadDispatcher.cs" />
@@ -136,7 +136,7 @@
     <Compile Include="Assets\Scripts\Domain\Model\Weapon\ProjectileLauncher.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Messaging\IMessengerPublish.cs" />
     <Compile Include="Assets\Scripts\InterfaceAdapters\Presenters\ScorePresenter.cs" />
-    <Compile Include="Assets\Scripts\Domain\Model\Enemy\WaveMovement.cs" />
+    <Compile Include="Assets\Scripts\Domain\Model\Enemy\EnemyWaveMovement.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Messaging\Components\PayloadCommand.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Logging\ConsoleLogger.cs" />
     <Compile Include="Assets\Scripts\Application\Events\EnemyEvents\EnemyTouchedSideBoundaryEvent.cs" />
@@ -147,11 +147,36 @@
     <Compile Include="Assets\Scripts\Views\MenuBaseView.cs" />
     <Compile Include="Assets\Scripts\InterfaceAdapters\Services\IDataSaver.cs" />
     <Compile Include="Assets\Scripts\Domain\Model\Enemy\EnemiesConfiguration.cs" />
-    <Compile Include="Assets\Scripts\Application\Utils\BoundariesOrthographic.cs" />
+    <Compile Include="Assets\Scripts\SystemUtilities\BoundariesOrthographic.cs" />
     <Compile Include="Assets\Scripts\Views\Healthbar\HealthbarBaseView.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Logging\ILogger.cs" />
     <Compile Include="Assets\Scripts\Application\Services\Messaging\Messaging\IMessenger.cs" />
     <Compile Include="Assets\Scripts\Application\Events\EnemyEvents\WaveRespawnEvent.cs" />
+    <Compile Include="Assets\Scripts\SystemUtilities\RaycastService.cs" />
+    <Compile Include="Assets\Scripts\SystemUtilities\UrlOpener.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

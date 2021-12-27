@@ -1,6 +1,9 @@
-﻿public interface IInput
+﻿namespace Scripts.Services
 {
-    float Horizontal { get; }
+    public interface IInput
+    {
+        float Horizontal { get; }
 
-    void Tick();
+        void Tick();
+    }
 }

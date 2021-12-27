@@ -1,4 +1,7 @@
-﻿internal interface IFireable
-{     
+﻿using UnityEngine;
+
+internal interface IFireable
+{
+    Transform SpawnPoint { get; }
     void Fire();
 }

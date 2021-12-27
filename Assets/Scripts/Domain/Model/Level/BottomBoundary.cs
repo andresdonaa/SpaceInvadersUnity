@@ -1,3 +1,5 @@
+using Scripts.Events;
+using SuperMaxim.Messaging;
 using UnityEngine;
 
 public class BottomBoundary : MonoBehaviour
@@ -7,7 +9,7 @@ public class BottomBoundary : MonoBehaviour
         EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
         if (enemy != null)
         {
-            Debug.Log("Gameover...");
+            Messenger.Default.Publish(new GameOverEvent());
         }
     }
 }

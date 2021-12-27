@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 748585449}
   - component: {fileID: 748585446}
   - component: {fileID: 748585447}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BottomBoundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,8 +375,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
+    m_Left: 20
+    m_Right: 30
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 5
@@ -909,7 +909,7 @@ GameObject:
   - component: {fileID: 1932464666}
   - component: {fileID: 1932464665}
   - component: {fileID: 1932464669}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SideBoundaries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +929,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 9, y: 0}
+  m_Offset: {x: 8.5, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -955,7 +955,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -9, y: 0}
+  m_Offset: {x: -8.5, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1058,6 +1058,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 243570939331535384, guid: c04bb3cfc98d2424cab7dc2d4cc8d007,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.5
+      objectReference: {fileID: 0}
     - target: {fileID: 243570940010151190, guid: c04bb3cfc98d2424cab7dc2d4cc8d007,
         type: 3}
       propertyPath: m_RootOrder

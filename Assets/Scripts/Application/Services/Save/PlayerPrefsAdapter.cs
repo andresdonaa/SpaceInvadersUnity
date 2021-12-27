@@ -1,15 +1,18 @@
 using UnityEngine;
 
-public class PlayerPrefsAdapter : IDataSaver
+namespace Scripts.Services
 {
-    public int GetInt(string key, int defaultValue = default)
+    public class PlayerPrefsAdapter : IDataSaver
     {
-        return PlayerPrefs.GetInt(key, defaultValue);
-    }
+        public int GetInt(string key, int defaultValue = default)
+        {
+            return PlayerPrefs.GetInt(key, defaultValue);
+        }
 
-    public void SetInt(string key, int value)
-    {
-        PlayerPrefs.SetInt(key, value);
-        PlayerPrefs.Save();
+        public void SetInt(string key, int value)
+        {
+            PlayerPrefs.SetInt(key, value);
+            PlayerPrefs.Save();
+        }
     }
 }

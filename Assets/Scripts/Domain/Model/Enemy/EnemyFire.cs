@@ -1,6 +1,5 @@
 using Scripts.Events;
 using SuperMaxim.Messaging;
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,6 +8,7 @@ public class EnemyFire : MonoBehaviour
     private IFireable projectile;
     private float fireInterval;
     private bool canShoot = true;
+    private Transform projectileSpawnPoint;
 
     public float FireInterval { get => fireInterval; set => fireInterval = value; }
 
@@ -17,6 +17,8 @@ public class EnemyFire : MonoBehaviour
         Messenger.Default.Subscribe<GameOverEvent>(OnGameOverEvent);
 
         projectile = GetComponent<IFireable>();
+        projectileSpawnPoint = projectile.SpawnPoint;
+
         StartCoroutine(Fire());
     }
 
@@ -30,6 +32,11 @@ public class EnemyFire : MonoBehaviour
         canShoot = false;
     }
 
+    private bool IsThereAnotherEnemyBelow()
+    {
+        return RaycastService.IsThereAnotherObjectOfTypeInDirection<EnemyController>(projectileSpawnPoint, Vector2.down);
+    }
+
     private IEnumerator Fire()
     {
         if (projectile != null)
@@ -37,7 +44,9 @@ public class EnemyFire : MonoBehaviour
             while (canShoot)
             {
                 yield return new WaitForSeconds(FireInterval);
-                projectile.Fire();
+
+                if (!IsThereAnotherEnemyBelow())
+                    projectile.Fire();
             }
         }
     }

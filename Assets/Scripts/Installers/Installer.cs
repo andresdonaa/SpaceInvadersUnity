@@ -1,3 +1,4 @@
+using Scripts.Services;
 using UnityEngine;
 
 public class Installer : MonoBehaviour
@@ -58,14 +59,12 @@ public class Installer : MonoBehaviour
 }
 
 // TO DO:
-// Sólo los enemigos de la primer fila pueden disparar
-// Límites de wave para distintos aspect ratio
-// Icono para build
 // Compatibilidad con mando
 // Unit testing
+// ART
+// Add namespaces
 
 // BUGS
-// A veces el wave se sale del boundary intercambiando 2 veces la dirección en la que tiene que ir
 
 // IMPROVEMENTS
 // Object pooling (enemies, player bullets, enemy bullets)
