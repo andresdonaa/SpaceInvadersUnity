@@ -18,6 +18,10 @@ public class EnemySpawner : MonoBehaviour
     private List<EnemyController> spawnedEnemies;
     private EnemyFactory enemyFactory;
 
+    public int Rows { get => rows; }
+    public int Columns { get => columns; }
+    public int TotalEnemiesCount { get => totalEnemiesCount; }
+
     private void Awake()
     {
         Messenger.Default.Subscribe<EnemyDestroyEvent>(OnEnemyDestroy);

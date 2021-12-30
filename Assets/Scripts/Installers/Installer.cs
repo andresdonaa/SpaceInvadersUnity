@@ -59,7 +59,7 @@ public class Installer : MonoBehaviour
 }
 
 // TO DO:
-// Unit testing
+// Add Editor tests, add more play mode tests, fix tests for run all together
 // Minor bugs
 // Add namespaces
 
