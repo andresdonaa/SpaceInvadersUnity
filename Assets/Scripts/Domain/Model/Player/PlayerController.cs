@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         InitData();
-        StartCoroutine(Blink.BlinkCoroutine(collider, spriteRenderer));
+        StartCoroutine(BlinkService.BlinkCoroutine(collider, spriteRenderer));
         Respawn();
     }
 

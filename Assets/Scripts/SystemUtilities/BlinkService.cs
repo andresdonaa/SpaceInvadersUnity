@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public static class Blink
+public class BlinkService
 {
     public static IEnumerator BlinkCoroutine(BoxCollider2D colliderToDisable, SpriteRenderer spriteRenderer)
     {

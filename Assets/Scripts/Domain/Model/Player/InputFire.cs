@@ -2,7 +2,7 @@ using Scripts.Events;
 using SuperMaxim.Messaging;
 using UnityEngine;
 
-public class Fire : MonoBehaviour
+public class InputFire : MonoBehaviour
 {
     private IFireable projectile;
 
@@ -10,7 +10,8 @@ public class Fire : MonoBehaviour
     {
         projectile = GetComponent<IFireable>();
 
-        Messenger.Default.Subscribe<FireButtonPressedEvent>(OnFireButtonPressed);
+        if (projectile != null)
+            Messenger.Default.Subscribe<FireButtonPressedEvent>(OnFireButtonPressed);
     }
 
     private void OnDestroy()
@@ -20,9 +21,6 @@ public class Fire : MonoBehaviour
 
     private void OnFireButtonPressed(FireButtonPressedEvent fireButtonPressedEvent)
     {
-        if (projectile != null)
-        {
-            projectile.Fire();
-        }
+        projectile.Fire();
     }
 }

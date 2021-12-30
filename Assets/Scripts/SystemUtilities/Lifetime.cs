@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Lifetime : MonoBehaviour
 {    
-    [Tooltip("Zero for not destroy")]
+    [Tooltip("Zero to do not destroy")]
     [SerializeField] private float timeToLive = 3f;
     
     private void Start()    
