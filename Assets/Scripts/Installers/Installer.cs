@@ -1,3 +1,15 @@
+/* 
+ * TO DO:
+ * Add Editor tests, add more play mode tests, fix tests for run all together
+ * Minor bugs
+ * Add namespaces
+ * 
+ * IMPROVEMENT OPPORTUNITIES:
+ * Add Object pooling (enemies, player bullets, enemy bullets)
+ * Fire system
+ * Input system
+*/
+
 using Scripts.Services;
 using UnityEngine;
 
@@ -57,11 +69,3 @@ public class Installer : MonoBehaviour
         difficulty.Dispose();
     }
 }
-
-// TO DO:
-// Add Editor tests, add more play mode tests, fix tests for run all together
-// Minor bugs
-// Add namespaces
-
-// IMPROVEMENTS
-// Object pooling (enemies, player bullets, enemy bullets)
