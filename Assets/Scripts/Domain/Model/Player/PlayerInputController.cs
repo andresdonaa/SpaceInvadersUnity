@@ -3,7 +3,7 @@ using Scripts.Services;
 using SuperMaxim.Messaging;
 using UnityEngine;
 
-public class PlayerInputController : IInput
+public class PlayerInputController : IShipInput
 {
     private const string AXIS_HORIZONTAL = "Horizontal";
     private const string BTN_FIRE_1 = "Fire1";

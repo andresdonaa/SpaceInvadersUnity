@@ -1,6 +1,6 @@
 ﻿namespace Scripts.Services
 {
-    public interface IInput
+    public interface IShipInput
     {
         float Horizontal { get; }
 
