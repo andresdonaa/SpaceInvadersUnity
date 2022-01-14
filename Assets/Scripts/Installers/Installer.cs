@@ -1,5 +1,6 @@
 /* 
  * TO DO:
+ * Add asmdefs, reorganize and refactor code to apply a good clean architecture: see "https://github.com/andresdonaa/CleanArchitectureTemplateUnity"
  * Add Editor tests, add more play mode tests, fix tests for run all together
  * Minor bugs
  * Add namespaces
