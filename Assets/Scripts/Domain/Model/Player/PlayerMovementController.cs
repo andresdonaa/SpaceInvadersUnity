@@ -7,23 +7,23 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private PlayerDataSO playerData;
 
     private float speed;
-    private IInput input;
+    private IShipInput shipInput;
     private Vector2 movement;
 
     private void Awake()
     {
-        input = new PlayerInputController();
+        shipInput = new PlayerInputController();
         InitData();
     }
 
     private void Update()
     {
-        input.Tick();
+        shipInput.Tick();
     }
 
     private void FixedUpdate()
     {
-        Movement(input.Horizontal, speed);
+        Movement(shipInput.Horizontal, speed);
     }
 
     private void InitData()
