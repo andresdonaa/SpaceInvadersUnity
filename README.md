@@ -1,8 +1,8 @@
 # Space Invaders
- Project made out with Unity and C #, to serve as a portfolio of my code as a videogame developer.
- It shows things related to architecture, SOLID, some design patterns, Clean Code, Pub-Sub, etc.
+ Project developed with Unity and C #.
+ Shows concepts related to architecture, SOLID, some design patterns and some Unity components behaviour based approach, Clean Code, Pub-Sub, , etc.
   
- Unity version: 2020.3.12f1
+ Unity version: 2021.3.2f1
  
  https://dreamingdonutsentertainment.com/
  
