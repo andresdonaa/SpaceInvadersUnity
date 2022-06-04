@@ -23,7 +23,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Movement(shipInput.Horizontal, speed);
+        DoMovement(shipInput.Horizontal, speed);
     }
 
     private void InitData()
@@ -31,7 +31,7 @@ public class PlayerMovementController : MonoBehaviour
         speed = playerData.speed;     
     }
 
-    private void Movement(float horizontal, float speed)
+    private void DoMovement(float horizontal, float speed)
     {
         movement = new Vector2(horizontal, 0.0f);
 

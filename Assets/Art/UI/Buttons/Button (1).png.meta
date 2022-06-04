@@ -42,6 +42,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -244,6 +245,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Button (1)_0: -7414830730180813051
+      Button (1)_2: 7440982637290965791
+      Button (1)_5: 6670177367013699776
+      Button (1)_4: 3973114617393943954
+      Button (1)_1: -2353212100904865932
+      Button (1)_3: -2899273507689537196
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
